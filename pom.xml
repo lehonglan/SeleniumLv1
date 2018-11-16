@@ -27,7 +27,7 @@
 	    <artifactId>selenium-java</artifactId>
 	    <version>3.141.5</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.testng/testng test-->
+	<!-- https://mvnrepository.com/artifact/org.testng/testng test1-->
 	<dependency>
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
