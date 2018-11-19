@@ -12,7 +12,7 @@ public class LoginPage {
 	private final By _txtPassword = By.xpath("//input[@id='password']");
 	private final By _btnLogin = By.xpath("//input[@value='login']");
 	private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-	private final By _usernameInputErrorMsg = By.xpath("//li[@class='username']/label[@class='validation-error']");
+	private final By _loginFormTitle = By.xpath("//form[@class='LoginForm']//legend");
 	
 	//Elements
 	public WebElement getTxtUsername()
@@ -35,16 +35,24 @@ public class LoginPage {
 		return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
 	}
 	
-	public WebElement getUsernameInputErrorMsg()
+	public WebElement getLoginFormTitle()
 	{
-		return Constant.WEBDRIVER.findElement(_usernameInputErrorMsg);
+		return Constant.WEBDRIVER.findElement(_loginFormTitle);
 	}
+	
 	
 	//Methods
 	
-	public String getErrorMessage()
+	public String getLoginErrorMessage()
 	{
-		return this.getUsernameInputErrorMsg().getText();
+		//Get Error message login form
+		return this.getLblLoginErrorMsg().getText();
+	}
+
+	public String getTextLoginFormTitle()
+	{
+		//Get Login form title
+		return this.getLoginFormTitle().getText();
 	}
 	
 	public HomePage login(String username, String password)
@@ -65,7 +73,7 @@ public class LoginPage {
 		this.getTxtPassword().sendKeys(password);
 		this.getBtnLogin().click();
 		
-		//Land on Home page
+		//Land on Login page
 		return new LoginPage();
 	}
 

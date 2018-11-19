@@ -8,5 +8,7 @@ public class Constant {
 	public static final String RAILWAY_URL = "https://1c5fcd6f.ngrok.io";
 	public static final String USERNAME = "lan.le@logigear.com";
 	public static final String PASSWORD = "Boom02122015";
+	public static final String WRONG_PASS = "            ";
+	public static final String WRONG_NAME = "111111111111";
 
 }
