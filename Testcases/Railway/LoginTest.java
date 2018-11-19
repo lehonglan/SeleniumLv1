@@ -42,5 +42,22 @@ public class LoginTest {
 		
 		Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
 	}
+	
+	@Test
+	public void TC02() {
+		System.out.println("TC02 - User can't login with blank 'Username' textbox");
+		HomePage homePage = new HomePage();
+		homePage.open();
+		
+		LoginPage loginPage = new LoginPage();
+		
+		String actualMsg = homePage.login("", Constant.PASSWORD).getUsernameInputErrorMsg();
+		String expectedMsg = "\r\n" + 
+				"                    You must specify a username.\r\n" + 
+				"                ";
+		
+		Assert.assertEquals(actualMsg, expectedMsg, "Error message displays correct when user login with blank 'Username'");
+		
+	}
 
 }

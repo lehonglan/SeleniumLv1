@@ -12,6 +12,7 @@ public class LoginPage {
 	private final By _txtPassword = By.xpath("//input[@id='password']");
 	private final By _btnLogin = By.xpath("//input[@value='login']");
 	private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+	private final By _usernameInputErrorMsg = By.xpath("//li[@class='username']/label[@class='validation-error']");
 	
 	//Elements
 	public WebElement getTxtUsername()
@@ -32,6 +33,11 @@ public class LoginPage {
 	public WebElement getLblLoginErrorMsg()
 	{
 		return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
+	}
+	
+	public WebElement getUsernameInputErrorMsg()
+	{
+		return Constant.WEBDRIVER.findElement(_usernameInputErrorMsg);
 	}
 	
 	//Methods
