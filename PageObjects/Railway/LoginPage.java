@@ -57,18 +57,21 @@ public class LoginPage {
 	
 	public void login(String username, String password)
 	{
+		//Clear text box before inputting
+		getTxtUsername().clear();
+		getTxtPassword().clear();
 		//Submit login credentials
 		getTxtUsername().sendKeys(username);
 		getTxtPassword().sendKeys(password);
 		getBtnLogin().click();
 	}
 	
-	public void loginfail(String username, String password)
+	public void login(String username, String password, int times)
 	{
-		//Submit login credentials
-		getTxtUsername().sendKeys(username);
-		getTxtPassword().sendKeys(password);
-		getBtnLogin().click();
+		for (int i=1; i <= times; i++)
+		{
+			login(username,password);
+		}
 	}
-
+	
 }

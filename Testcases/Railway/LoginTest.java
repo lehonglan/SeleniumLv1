@@ -1,6 +1,5 @@
 package Railway;
 
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
@@ -8,9 +7,10 @@ import org.testng.annotations.Test;
 
 import Utilities.Utilities;
 import Constant.Constant;
-import Login.Messages;
-
-
+import Messages.LoginMessages;
+import Messages.ChangePasswordMessages;
+import Messages.LogoutMessages;
+import Messages.MyTicketMessages;
 
 public class LoginTest {
 
@@ -34,68 +34,55 @@ public class LoginTest {
 		general.gotoLoginPage();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
 		String actual = general.getWelcomeMessage();
-		String expected = Messages.SUCCESS;
+		String expected = LoginMessages.SUCCESS;
 		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
-	@Test
+	@Test (description = "User can't login with blank 'Username' textbox")
 	public void TC02() {
-		System.out.println("TC02 - User can't login with blank 'Username' textbox");
-		HomePage homePage = new HomePage();
-		homePage.open();
-
-		LoginPage loginPage = homePage.gotoLoginPage();
-
-		String actualMsg = loginPage.loginfail("", Constant.PASSWORD).getLoginErrorMessage();
-		String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
-
-		Assert.assertEquals(actualMsg, expectedMsg, "User can login with blank 'Username'");
+		general.gotoLoginPage();
+		submit.login("", Constant.PASSWORD);
+		String actual = submit.getLoginErrorMessage();
+		String expected = LoginMessages.FAIL;
+		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
-	@Test
+	@Test (description = "User cannot log into Railway with invalid password")
 	public void TC03() {
-		System.out.println("TC03 - User cannot log into Railway with invalid password");
-		HomePage homePage = new HomePage();
-		homePage.open();
-
-		LoginPage loginPage = homePage.gotoLoginPage();
-
-		String actualMsg = loginPage.loginfail(Constant.USERNAME, Constant.WRONG_PASS).getLoginErrorMessage();
-		String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
-
-		Assert.assertEquals(actualMsg, expectedMsg, "User can login with wrong 'Password'");
+		general.gotoLoginPage();
+		submit.login(Constant.USERNAME, "INVALIDPASS");
+		String actual = submit.getLoginErrorMessage();
+		String expected = LoginMessages.FAIL;
+		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
-	@Test
+	@Test (description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
-		System.out.println("TC04 - Login page displays when un-logged User clicks on 'Book ticket' tab");
-		HomePage homePage = new HomePage();
-		homePage.open();
-
-		LoginPage loginPage = homePage.gotoLoginPageFromBookTicket();
-
-		String actualMsg = loginPage.getTextLoginFormTitle();
-		String expectedMsg = "Log in to your account";
-
-		Assert.assertEquals(actualMsg, expectedMsg, "Login page doesn't show when selecting 'Book ticket' tab");
+		general.gotoBookTicket();
+		String actual = general.getTitle();
+		String expected = LoginMessages.TITLE;
+		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
-	@Test
+	@Test (description = "System shows message when user enters wrong password several times")
 	public void TC05() {
-		System.out.println("TC05 - System shows message when user enters wrong password several times");
-		HomePage homePage = new HomePage();
-		homePage.open();
-
-		LoginPage loginPage = homePage.gotoLoginPage();
-
-		loginPage.loginfail(Constant.USERNAME, Constant.WRONG_PASS);
-		loginPage.loginfail(Constant.USERNAME, Constant.WRONG_PASS);
-		loginPage.loginfail(Constant.USERNAME, Constant.WRONG_PASS);
-
-		String actualMsg = loginPage.loginfail(Constant.USERNAME, Constant.WRONG_PASS).getLoginErrorMessage();
-		String expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
-
-		Assert.assertEquals(actualMsg, expectedMsg, "The correct message doesn't show");
+		general.gotoLoginPage();
+		submit.login(Constant.USERNAME, "INVALIDPASS",4);
+		String actual = submit.getLoginErrorMessage();
+		String expected = LoginMessages.FAIL4TIMES;
+		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
+	@Test (description = "Additional pages display once user logged in")
+	public void TC06() {
+		general.gotoLoginPage();
+		submit.login(Constant.USERNAME, Constant.PASSWORD);
+		boolean actualLogout = general.getTabLogout().isDisplayed();
+		boolean actualChangePassword = general.getTabChangePassword().isDisplayed();
+		boolean actualMyTicket = general.getTabMyTicket().isDisplayed();
+		Assert.assertTrue(actualLogout, LogoutMessages.TABNAME + " tab is not displayed"); 
+		Assert.assertTrue(actualChangePassword, ChangePasswordMessages.TITLE + " tab is not displayed");
+		Assert.assertTrue(actualMyTicket, MyTicketMessages.TITLE + " tab is not displayed");
+	}
+	
 }
