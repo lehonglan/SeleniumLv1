@@ -98,7 +98,7 @@ public class LoginTest {
 		String actual = general.getPageTitle().getText();
 		String expected = MyTicketMessages.TITLE;
 		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
-		System.out.println("abc123");
+//		System.out.println("abc123");
 		}
 	}
 	
