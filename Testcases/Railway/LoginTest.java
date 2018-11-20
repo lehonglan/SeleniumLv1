@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import Utilities.Utilities;
 import Constant.Constant;
+import Login.Messages;
 
 
 
@@ -28,13 +29,13 @@ public class LoginTest {
 		Utilities.closeBrowser();
 	}
 
-	@Test (description = "TC01 - User can log into Railway with valid username and password")
+	@Test (description = "User can log into Railway with valid username and password")
 	public void TC01() {
 		general.gotoLoginPage();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
 		String actual = general.getWelcomeMessage();
-		String expected = "Welcome " + Constant.USERNAME;
-		Assert.assertEquals(actual, expected, "Welcome message is not displayed as expected");
+		String expected = Messages.SUCCESS;
+		Assert.assertEquals(actual, expected,"\nExpected is: " + expected + "\nActual is: " + actual +"\n");
 	}
 
 	@Test
