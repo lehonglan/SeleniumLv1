@@ -33,18 +33,16 @@ public class GeneralPage {
 	//Methods
 	public String getWelcomeMessage()
 	{
-		return this.getLblWelcomeMessage().getText();
+		return getLblWelcomeMessage().getText();
 	}
 	
-	public LoginPage gotoLoginPage()
+	public void gotoLoginPage()
 	{
-		this.getTabLogin().click();
-		return new LoginPage();
+		getTabLogin().click();
 	}
 	
-	public LoginPage gotoLoginPageFromBookTicket()
+	public void gotoLoginPageFromBookTicket()
 	{
-		this.getTabBookTicket().click();
-		return new LoginPage();
+		getTabBookTicket().click();
 	}
 }

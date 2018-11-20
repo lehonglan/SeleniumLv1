@@ -8,36 +8,36 @@ import Constant.Constant;
 public class LoginPage {
 	
 	//Locators
-	private final By _txtUsername = By.xpath("//input[@id='username']");
-	private final By _txtPassword = By.xpath("//input[@id='password']");
-	private final By _btnLogin = By.xpath("//input[@value='login']");
-	private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-	private final By _loginFormTitle = By.xpath("//form[@class='LoginForm']//legend");
+	private final By txtUsername = By.id("username");
+	private final By txtPassword = By.id("password");
+	private final By btnLogin = By.xpath("//input[@value='login']");
+	private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+	private final By loginFormTitle = By.xpath("//form[@class='LoginForm']//legend");
 	
 	//Elements
 	public WebElement getTxtUsername()
 	{
-		return Constant.WEBDRIVER.findElement(_txtUsername);
+		return Constant.WEBDRIVER.findElement(txtUsername);
 	}
 	
 	public WebElement getTxtPassword()
 	{
-		return Constant.WEBDRIVER.findElement(_txtPassword);
+		return Constant.WEBDRIVER.findElement(txtPassword);
 	}
 	
 	public WebElement getBtnLogin()
 	{
-		return Constant.WEBDRIVER.findElement(_btnLogin);
+		return Constant.WEBDRIVER.findElement(btnLogin);
 	}
 	
 	public WebElement getLblLoginErrorMsg()
 	{
-		return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
+		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
 	}
 	
 	public WebElement getLoginFormTitle()
 	{
-		return Constant.WEBDRIVER.findElement(_loginFormTitle);
+		return Constant.WEBDRIVER.findElement(loginFormTitle);
 	}
 	
 	
@@ -55,26 +55,20 @@ public class LoginPage {
 		return this.getLoginFormTitle().getText();
 	}
 	
-	public HomePage login(String username, String password)
+	public void login(String username, String password)
 	{
 		//Submit login credentials
-		this.getTxtUsername().sendKeys(username);
-		this.getTxtPassword().sendKeys(password);
-		this.getBtnLogin().click();
-		
-		//Land on Home page
-		return new HomePage();
+		getTxtUsername().sendKeys(username);
+		getTxtPassword().sendKeys(password);
+		getBtnLogin().click();
 	}
 	
-	public LoginPage loginfail(String username, String password)
+	public void loginfail(String username, String password)
 	{
 		//Submit login credentials
-		this.getTxtUsername().sendKeys(username);
-		this.getTxtPassword().sendKeys(password);
-		this.getBtnLogin().click();
-		
-		//Land on Login page
-		return new LoginPage();
+		getTxtUsername().sendKeys(username);
+		getTxtPassword().sendKeys(password);
+		getBtnLogin().click();
 	}
 
 }

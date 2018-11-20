@@ -14,6 +14,8 @@ import Constant.Constant;
 public class LoginTest {
 
 	private static final HomePage homePage = new HomePage();
+	private static final GeneralPage general = new GeneralPage();
+	private static final LoginPage submit = new LoginPage();
 
 	@BeforeMethod
 	public void beforeMethod() {
@@ -28,12 +30,11 @@ public class LoginTest {
 
 	@Test (description = "TC01 - User can log into Railway with valid username and password")
 	public void TC01() {
-		LoginPage loginPage = homePage.gotoLoginPage();
-
-		String actualMsg = loginPage.login(Constant.USERNAME, Constant.PASSWORD).getWelcomeMessage();
-		String expectedMsg = "Welcome " + Constant.USERNAME;
-
-		Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+		general.gotoLoginPage();
+		submit.login(Constant.USERNAME, Constant.PASSWORD);
+		String actual = general.getWelcomeMessage();
+		String expected = "Welcome " + Constant.USERNAME;
+		Assert.assertEquals(actual, expected, "Welcome message is not displayed as expected");
 	}
 
 	@Test
