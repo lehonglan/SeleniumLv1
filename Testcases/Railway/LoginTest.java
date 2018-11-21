@@ -2,17 +2,16 @@ package Railway;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import Utilities.Utilities;
 import Constant.Constant;
 import Messages.ChangePasswordMessages;
 import Messages.LoginMessages;
 import Messages.MyTicketMessages;
 import Messages.RegisterMessages;
+import Messages.Fail;
+import Utilities.Utilities;
 
 public class LoginTest {
 
@@ -37,9 +36,7 @@ public class LoginTest {
 	public void TC01() {
 		GeneralPage.getTab("Login").click();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
-		String actual = general.getWelcomeMessage();
-		String expected = LoginMessages.SUCCESS;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.assertCheckTextElement(general.getWelcomeMessage(), LoginMessages.SUCCESS);
 		Utilities.logOut();
 	}
 
@@ -47,9 +44,7 @@ public class LoginTest {
 	public void TC02() {
 		GeneralPage.getTab("Login").click();
 		submit.login("", Constant.PASSWORD);
-		String actual = submit.getLoginErrorMessage();
-		String expected = LoginMessages.FAIL;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL);
 		Utilities.logOut();
 	}
 
@@ -57,27 +52,23 @@ public class LoginTest {
 	public void TC03() {
 		GeneralPage.getTab("Login").click();
 		submit.login(Constant.USERNAME, "INVALIDPASS");
-		String actual = submit.getLoginErrorMessage();
-		String expected = LoginMessages.FAIL;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL);
 		Utilities.logOut();
 	}
 
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
 		GeneralPage.getTab("Book ticket").click();
-		String actual = general.getTitle();
-		String expected = LoginMessages.TITLE;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.assertCheckTextElement(general.getTitle(), LoginMessages.TITLE);
+		Utilities.logOut();
 	}
 
 	@Test(description = "System shows message when user enters wrong password several times")
 	public void TC05() {
 		GeneralPage.getTab("Login").click();
 		submit.login(Constant.USERNAME, "INVALIDPASS", 4);
-		String actual = submit.getLoginErrorMessage();
-		String expected = LoginMessages.FAIL4TIMES;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL4TIMES);
+		Utilities.logOut();
 	}
 
 	@Test(description = "Additional pages display once user logged in")
@@ -85,21 +76,23 @@ public class LoginTest {
 		GeneralPage.getTab("Login").click();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
 
-		softAssertion.assertTrue(Utilities.isButtonDisplay("Logout"), "Logout tab is not displayed");
-		softAssertion.assertTrue(Utilities.isButtonDisplay("My ticket"), "My ticket tab is not displayed");
-		softAssertion.assertTrue(Utilities.isButtonDisplay("Change password"),"Change password tab is not displayed");
+		softAssertion.assertTrue(Utilities.isTabDisplay("Log out"), Fail.ElementIsNotShown("Tab Logout"));
+		softAssertion.assertTrue(Utilities.isTabDisplay("My ticket"), Fail.ElementIsNotShown("Tab My ticket"));
+		softAssertion.assertTrue(Utilities.isTabDisplay("Change password"),
+				Fail.ElementIsNotShown("Tab Change password"));
 
 		GeneralPage.getTab("My ticket").click();
 		String actualMyTicketTitle = general.getPageTitle().getText();
 		String expectedMyTicketTitle = MyTicketMessages.TITLE;
 		softAssertion.assertEquals(actualMyTicketTitle, expectedMyTicketTitle,
-				"\nExpected is: " + expectedMyTicketTitle + " page displays" + "\nActual is: " + actualMyTicketTitle + " page displays" + "\n");
+				Fail.CompareText(actualMyTicketTitle, expectedMyTicketTitle));
 
 		GeneralPage.getTab("Change password").click();
 		String actualChangePasswordTitle = general.getPageTitle().getText();
 		String expectedChangePasswordTitle = ChangePasswordMessages.TITLE;
 		softAssertion.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle,
-				"\nExpected is: " + expectedChangePasswordTitle + " page displays"  + "\nActual is: " + actualChangePasswordTitle + " page displays" + "\n");
+				Fail.CompareText(actualChangePasswordTitle, expectedChangePasswordTitle));
+
 		softAssertion.assertAll();
 		Utilities.logOut();
 	}
@@ -107,10 +100,9 @@ public class LoginTest {
 	@Test(description = "User can create new account")
 	public void TC07() {
 		GeneralPage.getTab("Register").click();
-		registerPage.register("lan.le+12@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS, Constant.REGISTER_PID);
-		String actual = registerPage.getRegisterSuccessMessage().getText();
-		String expected = RegisterMessages.TITLE;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		registerPage.register("username" + Utilities.randomNumber() + "@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS,
+				Constant.REGISTER_PID);
+		Utilities.assertCheckTextElement(registerPage.getRegisterSuccessMessage().getText(), RegisterMessages.TITLE);
 		Utilities.logOut();
 	}
 }
