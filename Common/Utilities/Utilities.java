@@ -3,6 +3,7 @@ package Utilities;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import Constant.Constant;
+import Railway.GeneralPage;
 
 public class Utilities {
 
@@ -15,6 +16,14 @@ public class Utilities {
 	public static void closeBrowser() {
 		System.out.println("Post-condition");
 		Constant.WEBDRIVER.quit();
+	}
+	
+	public static void logOut() {
+		try {
+		GeneralPage.getTab("Log out").click();
+		}
+		catch (Exception e) {
+		}
 	}
 	
 //	public static WebElement fluentWait(final By locator) {

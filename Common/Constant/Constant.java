@@ -12,6 +12,6 @@ public class Constant {
 	public static final String WRONG_NAME = "111111111111";
 	public static final String REGISTER_NAME = "lan.le+7@logigear.com";
 	public static final String REGISTER_PASS = "12345678";
-	public static final String REGISTER_PID = "12345678";
+	public static final String REGISTER_PID = "0123456789";
 
 }

@@ -1,6 +1,8 @@
 package Railway;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import org.testng.Assert;
@@ -9,6 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import Utilities.Utilities;
 import Constant.Constant;
+import Messages.ChangePasswordMessages;
 import Messages.LoginMessages;
 import Messages.MyTicketMessages;
 import Messages.RegisterMessages;
@@ -22,14 +25,14 @@ public class LoginTest {
 	private static final RegisterPage registerPage = new RegisterPage();
 	private static final SoftAssert softAssertion = new SoftAssert();
 
-	@BeforeMethod
-	public void beforeMethod() {
+	@BeforeClass
+	public void beforeClass() {
 		Utilities.openChrome();
 		homePage.open();
 	}
 
-	@AfterMethod
-	public void afterMethod() {
+	@AfterClass
+	public void afterClass() {
 		Utilities.closeBrowser();
 	}
 
@@ -40,6 +43,7 @@ public class LoginTest {
 		String actual = general.getWelcomeMessage();
 		String expected = LoginMessages.SUCCESS;
 		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.logOut();
 	}
 
 	@Test(description = "User can't login with blank 'Username' textbox")
@@ -49,6 +53,7 @@ public class LoginTest {
 		String actual = submit.getLoginErrorMessage();
 		String expected = LoginMessages.FAIL;
 		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.logOut();
 	}
 
 	@Test(description = "User cannot log into Railway with invalid password")
@@ -58,6 +63,7 @@ public class LoginTest {
 		String actual = submit.getLoginErrorMessage();
 		String expected = LoginMessages.FAIL;
 		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.logOut();
 	}
 
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
@@ -82,17 +88,9 @@ public class LoginTest {
 		general.gotoLoginPage();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
 
-//		softAssertion.assertTrue(
-//				CheckButton.isButtonDisplay("Logout") && CheckButton.isButtonDisplay("My ticket")
-//						&& CheckButton.isButtonDisplay("Change password"),
-//				String.format(
-//						"At least one tab was not displayed. \nTab Logout: %s \nTab My ticket: %s \nTab Change password: %s\n",
-//						CheckButton.isButtonDisplay("Logout"), CheckButton.isButtonDisplay("My ticket"),
-//						CheckButton.isButtonDisplay("Change password")));
-		// Fail 1 trong đống trên xong khúc này chạy ko đc, chịu!!!
-
-		softAssertion.assertTrue(CheckButton.isButtonDisplay("Logout"));
-		System.out.println("Logout button is not displayed");
+		softAssertion.assertTrue(CheckButton.isButtonDisplay("Logout"), "Logout tab is not displayed");
+		softAssertion.assertTrue(CheckButton.isButtonDisplay("My ticket"), "My ticket tab is not displayed");
+		softAssertion.assertTrue(CheckButton.isButtonDisplay("Change password"),"Change password tab is not displayed");
 
 		GeneralPage.getTab("My ticket").click();
 		String actualMyTicketTitle = general.getPageTitle().getText();
@@ -102,20 +100,22 @@ public class LoginTest {
 
 		GeneralPage.getTab("Change password").click();
 		String actualChangePasswordTitle = general.getPageTitle().getText();
-		String expectedChangePasswordTitle = MyTicketMessages.TITLE;
+		String expectedChangePasswordTitle = ChangePasswordMessages.TITLE;
 		softAssertion.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle,
 				"\nExpected is: " + expectedChangePasswordTitle + "\nActual is: " + actualChangePasswordTitle + "\n");
+		softAssertion.assertAll();
+		Utilities.logOut();
 
 	}
 
 	@Test(description = "User can create new account")
 	public void TC07() {
 		GeneralPage.getTab("Register").click();
-		registerPage.register("lan.le+10@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS,
+		registerPage.register("lan.le+12@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS,
 				Constant.REGISTER_PID);
-//		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		String actual = registerPage.getRegisterSuccessMessage().getText();
 		String expected = RegisterMessages.TITLE;
 		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
+		Utilities.logOut();
 	}
 }

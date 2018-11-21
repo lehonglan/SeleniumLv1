@@ -7,7 +7,7 @@ import Constant.Constant;
 
 public class RegisterPage {
 	// Locators
-	private final By registerButton = By.className("form-actions");
+	private final By registerButton = By.xpath("//input[@value='Register']");
 	private final By registerSuccessMessage = By.xpath("//h1");
 	
 	// Elements
