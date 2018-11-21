@@ -3,10 +3,9 @@ package Railway;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import Utilities.Utilities;
 import Constant.Constant;
@@ -21,6 +20,7 @@ public class LoginTest {
 	private static final GeneralPage general = new GeneralPage();
 	private static final LoginPage submit = new LoginPage();
 	private static final RegisterPage registerPage = new RegisterPage();
+	private static final SoftAssert softAssertion = new SoftAssert();
 
 	@BeforeMethod
 	public void beforeMethod() {
@@ -81,31 +81,38 @@ public class LoginTest {
 	public void TC06() {
 		general.gotoLoginPage();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
-		try {
-		Assert.assertTrue(
-				CheckButton.isButtonDisplay("Logout") && 
-				CheckButton.isButtonDisplay("My ticket") && 
-				CheckButton.isButtonDisplay("Change password"),
-				String.format(
-					"At least one tab was not displayed. \nTab Logout: %s \nTab My ticket: %s \nTab Change password: %s\n",
-					CheckButton.isButtonDisplay("Logout"), 
-					CheckButton.isButtonDisplay("My ticket"),
-					CheckButton.isButtonDisplay("Change password")));
-		}
-		catch (Exception e) {
-			
+
+//		softAssertion.assertTrue(
+//				CheckButton.isButtonDisplay("Logout") && CheckButton.isButtonDisplay("My ticket")
+//						&& CheckButton.isButtonDisplay("Change password"),
+//				String.format(
+//						"At least one tab was not displayed. \nTab Logout: %s \nTab My ticket: %s \nTab Change password: %s\n",
+//						CheckButton.isButtonDisplay("Logout"), CheckButton.isButtonDisplay("My ticket"),
+//						CheckButton.isButtonDisplay("Change password")));
+		// Fail 1 trong đống trên xong khúc này chạy ko đc, chịu!!!
+
+		softAssertion.assertTrue(CheckButton.isButtonDisplay("Logout"));
+		System.out.println("Logout button is not displayed");
+
 		GeneralPage.getTab("My ticket").click();
-		String actual = general.getPageTitle().getText();
-		String expected = MyTicketMessages.TITLE;
-		Assert.assertEquals(actual, expected, "\nExpected is: " + expected + "\nActual is: " + actual + "\n");
-//		System.out.println("abc123");
-		}
+		String actualMyTicketTitle = general.getPageTitle().getText();
+		String expectedMyTicketTitle = MyTicketMessages.TITLE;
+		softAssertion.assertEquals(actualMyTicketTitle, expectedMyTicketTitle,
+				"\nExpected is: " + expectedMyTicketTitle + "\nActual is: " + actualMyTicketTitle + "\n");
+
+		GeneralPage.getTab("Change password").click();
+		String actualChangePasswordTitle = general.getPageTitle().getText();
+		String expectedChangePasswordTitle = MyTicketMessages.TITLE;
+		softAssertion.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle,
+				"\nExpected is: " + expectedChangePasswordTitle + "\nActual is: " + actualChangePasswordTitle + "\n");
+
 	}
-	
-	@Test (description = "User can create new account")
+
+	@Test(description = "User can create new account")
 	public void TC07() {
 		GeneralPage.getTab("Register").click();
-		registerPage.register(Constant.REGISTER_NAME, Constant.REGISTER_PASS, Constant.REGISTER_PASS, Constant.REGISTER_PID);
+		registerPage.register("lan.le+10@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS,
+				Constant.REGISTER_PID);
 //		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		String actual = registerPage.getRegisterSuccessMessage().getText();
 		String expected = RegisterMessages.TITLE;

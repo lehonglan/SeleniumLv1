@@ -34,7 +34,7 @@ public class RegisterPage {
 		getBox("email").sendKeys(email);
 		getBox("password").sendKeys(password);
 		getBox("confirmPassword").sendKeys(confirmpassword);
-		getBox("pid").sendKeys(pidnumber);		
+		getBox("pid").sendKeys(pidnumber);
 		getRegisterButton().click();
 	}
 }

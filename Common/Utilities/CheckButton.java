@@ -8,8 +8,7 @@ import Constant.Constant;
 public class CheckButton {
 	public static boolean isButtonDisplay(String tabname) {
 		try {
-			return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[text()='%s']", tabname)))
-					.isDisplayed();
+			return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[text()='%s']", tabname))).isDisplayed();
 		} catch (NoSuchElementException e) {
 			return false;
 		}
