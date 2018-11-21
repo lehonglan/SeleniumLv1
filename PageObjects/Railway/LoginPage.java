@@ -8,21 +8,10 @@ import Constant.Constant;
 public class LoginPage {
 
 	// Locators
-	private final By txtUsername = By.id("username");
-	private final By txtPassword = By.id("password");
 	private final By btnLogin = By.xpath("//input[@value='login']");
 	private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-	private final By loginFormTitle = By.xpath("//form[@class='LoginForm']//legend");
 
 	// Elements
-	public WebElement getTxtUsername() {
-		return Constant.WEBDRIVER.findElement(txtUsername);
-	}
-
-	public WebElement getTxtPassword() {
-		return Constant.WEBDRIVER.findElement(txtPassword);
-	}
-
 	public WebElement getBtnLogin() {
 		return Constant.WEBDRIVER.findElement(btnLogin);
 	}
@@ -31,29 +20,23 @@ public class LoginPage {
 		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
 	}
 
-	public WebElement getLoginFormTitle() {
-		return Constant.WEBDRIVER.findElement(loginFormTitle);
+	public static WebElement getBox(String boxname) {
+		return Constant.WEBDRIVER.findElement(By.id(boxname));
 	}
 
 	// Methods
-
 	public String getLoginErrorMessage() {
 		// Get Error message login form
 		return this.getLblLoginErrorMsg().getText();
 	}
 
-	public String getTextLoginFormTitle() {
-		// Get Login form title
-		return this.getLoginFormTitle().getText();
-	}
-
 	public void login(String username, String password) {
 		// Clear text box before inputting
-		getTxtUsername().clear();
-		getTxtPassword().clear();
+		getBox("username").clear();
+		getBox("password").clear();
 		// Submit login credentials
-		getTxtUsername().sendKeys(username);
-		getTxtPassword().sendKeys(password);
+		getBox("username").sendKeys(username);
+		getBox("password").sendKeys(password);
 		getBtnLogin().click();
 	}
 

@@ -1,5 +1,7 @@
 package Utilities;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import Constant.Constant;
@@ -17,28 +19,21 @@ public class Utilities {
 		System.out.println("Post-condition");
 		Constant.WEBDRIVER.quit();
 	}
-	
+
 	public static void logOut() {
 		try {
-		GeneralPage.getTab("Log out").click();
-		}
-		catch (Exception e) {
+			GeneralPage.getTab("Log out").click();
+		} catch (Exception e) {
 		}
 	}
-	
-//	public static WebElement fluentWait(final By locator) {
-//	    Wait<WebDriver> wait = new FluentWait<WebDriver>(Constant.WEBDRIVER)
-//	            .withTimeout(30, TimeUnit.SECONDS)
-//	            .pollingEvery(5, TimeUnit.SECONDS)
-//	            .ignoring(NoSuchElementException.class);
-//
-//	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-//	        public WebElement apply(WebDriver driver) {
-//	            return driver.findElement(locator);
-//	        }
-//	    });
-//
-//	    return  foo;
-//	}
+
+	public static boolean isButtonDisplay(String tabname) {
+		try {
+			return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[text()='%s']", tabname)))
+					.isDisplayed();
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
 
 }
