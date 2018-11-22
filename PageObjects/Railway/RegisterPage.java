@@ -25,12 +25,10 @@ public class RegisterPage {
 	}
 
 	public void register(String email, String password, String confirmpassword, String pidnumber) {
-		// Clear text box before inputting
 		getBox("email").clear();
 		getBox("password").clear();
 		getBox("confirmPassword").clear();
 		getBox("pid").clear();
-		// Submit login credentials
 		getBox("email").sendKeys(email);
 		getBox("password").sendKeys(password);
 		getBox("confirmPassword").sendKeys(confirmpassword);

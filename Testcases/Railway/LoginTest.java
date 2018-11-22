@@ -7,6 +7,7 @@ import org.testng.asserts.SoftAssert;
 import Constant.Constant;
 import Messages.ChangePasswordMessages;
 import Messages.LoginMessages;
+import Messages.LogoutMessages;
 import Messages.MyTicketMessages;
 import Messages.RegisterMessages;
 import Messages.Fail;
@@ -74,10 +75,16 @@ public class LoginTest {
 	public void TC06() {
 		GeneralPage.getTab("Login").click();
 		submit.login(Constant.USERNAME, Constant.PASSWORD);
-
-		softAssertion.assertTrue(Utilities.isTabDisplay("Log out"), Fail.ElementIsNotShown("Tab Logout"));
+		
+		softAssertion.assertTrue(Utilities.isTabDisplay("Log out"), Fail.ElementIsNotShown("Tab Logout")); /*Check if the tab is available*/
+		softAssertion.assertEquals(GeneralPage.getTab("Log out").getText(), LogoutMessages.TABNAME,
+				Fail.CompareText(GeneralPage.getTab("Log out").getText(), LogoutMessages.TABNAME)); /*Check if the tab name is displayed as expected*/
 		softAssertion.assertTrue(Utilities.isTabDisplay("My ticket"), Fail.ElementIsNotShown("Tab My ticket"));
-		softAssertion.assertTrue(Utilities.isTabDisplay("Change password"), Fail.ElementIsNotShown("Tab Change password"));
+		softAssertion.assertEquals(GeneralPage.getTab("My ticket").getText(), MyTicketMessages.TABNAME,
+				Fail.CompareText(GeneralPage.getTab("My ticket").getText(), MyTicketMessages.TABNAME));
+		softAssertion.assertTrue(Utilities.isTabDisplay("Change password"),	Fail.ElementIsNotShown("Tab Change password"));
+		softAssertion.assertEquals(GeneralPage.getTab("Change password").getText(), ChangePasswordMessages.TABNAME,
+				Fail.CompareText(GeneralPage.getTab("Change password").getText(), ChangePasswordMessages.TABNAME));
 
 		GeneralPage.getTab("My ticket").click();
 		softAssertion.assertEquals(general.getPageTitle().getText(), MyTicketMessages.TITLE,
@@ -94,7 +101,7 @@ public class LoginTest {
 	@Test(description = "User can create new account")
 	public void TC07() {
 		GeneralPage.getTab("Register").click();
-		registerPage.register("username" + Utilities.randomNumber() + "@logigiear.com", Constant.REGISTER_PASS,
+		registerPage.register("username" + Utilities.randomNumber(10000) + "@logigiear.com", Constant.REGISTER_PASS,
 				Constant.REGISTER_PASS, Constant.REGISTER_PID);
 		Utilities.assertCheckTextElement(registerPage.getRegisterSuccessMessage().getText(), RegisterMessages.TITLE);
 		Utilities.logOut();

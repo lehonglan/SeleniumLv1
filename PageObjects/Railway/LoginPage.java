@@ -26,15 +26,12 @@ public class LoginPage {
 
 	// Methods
 	public String getLoginErrorMessage() {
-		// Get Error message login form
 		return this.getLblLoginErrorMsg().getText();
 	}
 
 	public void login(String username, String password) {
-		// Clear text box before inputting
 		getBox("username").clear();
 		getBox("password").clear();
-		// Submit login credentials
 		getBox("username").sendKeys(username);
 		getBox("password").sendKeys(password);
 		getBtnLogin().click();

@@ -19,9 +19,9 @@ public class Utilities {
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
 
-	public static int randomNumber() {
+	public static int randomNumber(int range) {
 		Random randomGenerator = new Random();
-		return randomGenerator.nextInt(1000);
+		return randomGenerator.nextInt(range);
 	}
 
 	public static void closeBrowser() {
