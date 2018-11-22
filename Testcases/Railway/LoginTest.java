@@ -4,7 +4,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import Constant.Constant;
 import Messages.ChangePasswordMessages;
 import Messages.LoginMessages;
@@ -82,16 +81,10 @@ public class LoginTest {
 				Fail.ElementIsNotShown("Tab Change password"));
 
 		GeneralPage.getTab("My ticket").click();
-		String actualMyTicketTitle = general.getPageTitle().getText();
-		String expectedMyTicketTitle = MyTicketMessages.TITLE;
-		softAssertion.assertEquals(actualMyTicketTitle, expectedMyTicketTitle,
-				Fail.CompareText(actualMyTicketTitle, expectedMyTicketTitle));
+		Utilities.softAssertCheckTextElement(general.getPageTitle().getText(), MyTicketMessages.TITLE);
 
 		GeneralPage.getTab("Change password").click();
-		String actualChangePasswordTitle = general.getPageTitle().getText();
-		String expectedChangePasswordTitle = ChangePasswordMessages.TITLE;
-		softAssertion.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle,
-				Fail.CompareText(actualChangePasswordTitle, expectedChangePasswordTitle));
+		Utilities.softAssertCheckTextElement(general.getPageTitle().getText(), ChangePasswordMessages.TITLE);
 
 		softAssertion.assertAll();
 		Utilities.logOut();
@@ -100,8 +93,8 @@ public class LoginTest {
 	@Test(description = "User can create new account")
 	public void TC07() {
 		GeneralPage.getTab("Register").click();
-		registerPage.register("username" + Utilities.randomNumber() + "@logigiear.com", Constant.REGISTER_PASS, Constant.REGISTER_PASS,
-				Constant.REGISTER_PID);
+		registerPage.register("username" + Utilities.randomNumber() + "@logigiear.com", Constant.REGISTER_PASS,
+				Constant.REGISTER_PASS, Constant.REGISTER_PID);
 		Utilities.assertCheckTextElement(registerPage.getRegisterSuccessMessage().getText(), RegisterMessages.TITLE);
 		Utilities.logOut();
 	}

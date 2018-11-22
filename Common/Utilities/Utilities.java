@@ -19,9 +19,9 @@ public class Utilities {
 		Constant.WEBDRIVER = new ChromeDriver();
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
-	
+
 	public static int randomNumber() {
-		Random randomGenerator = new Random();  
+		Random randomGenerator = new Random();
 		return randomGenerator.nextInt(1000);
 	}
 
@@ -54,6 +54,7 @@ public class Utilities {
 	public static void softAssertCheckTextElement(String actual, String expected) {
 		softAssertion.assertEquals(actual, expected,
 				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
+		softAssertion.assertAll();
 	}
 
 }

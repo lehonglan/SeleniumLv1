@@ -30,7 +30,7 @@ public class GeneralPage {
 	}
 
 	public static WebElement getTab(String tabname) {
-		return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[text()='%s']", tabname)));
+		return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[contains(text(),'%s')]", tabname)));
 	}
 
 }
