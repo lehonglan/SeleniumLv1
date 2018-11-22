@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Hi\AppData\Local\Temp\testng-eclipse--264010413\testng-customsuite.xml</span>
+                    <span>C:\Users\lan.le\AppData\Local\Temp\testng-eclipse-780679885\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods, 3 failed,   4 passed</span>
+                    <span class="method-stats">7 methods, 2 failed,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -108,11 +108,6 @@
                       <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC05">TC05</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC06">TC06</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -137,6 +132,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC04">TC04</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Railway.LoginTest" class="method navigator-link" hash-for-method="TC06">TC06</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -177,7 +177,7 @@ Actual is: &apos;Invalid username or password. Please try again.&apos; displays
 	at org.testng.Assert.assertEquals(Assert.java:118)
 	at org.testng.Assert.assertEquals(Assert.java:453)
 	at Utilities.Utilities.assertCheckTextElement(Utilities.java:49)
-	at Railway.LoginTest.TC03(LoginTest.java:55)
+	at Railway.LoginTest.TC03(LoginTest.java:54)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -224,7 +224,7 @@ Actual is: &apos;Invalid username or password. Please try again.&apos; displays
 	at org.testng.Assert.assertEquals(Assert.java:118)
 	at org.testng.Assert.assertEquals(Assert.java:453)
 	at Utilities.Utilities.assertCheckTextElement(Utilities.java:49)
-	at Railway.LoginTest.TC05(LoginTest.java:70)
+	at Railway.LoginTest.TC05(LoginTest.java:69)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -254,49 +254,6 @@ Actual is: &apos;Invalid username or password. Please try again.&apos; displays
 </div> <!-- stack-trace -->
                   <em>
 (System shows message when user enters wrong password several times)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="TC06">
-                  </a> <!-- TC06 -->
-                  <span class="method-name">TC06</span>
-                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
-	
-Expected is: &apos;Logout&apos; displays
-Actual is: &apos;Log out&apos; displays
- expected [Logout] but found [Log out]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
-	at Railway.LoginTest.TC06(LoginTest.java:98)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Additional pages display once user logged in)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -336,6 +293,15 @@ Actual is: &apos;Log out&apos; displays
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
+                  <a name="TC06">
+                  </a> <!-- TC06 -->
+                  <span class="method-name">TC06</span>
+                  <em>
+(Additional pages display once user logged in)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="TC07">
                   </a> <!-- TC07 -->
                   <span class="method-name">TC07</span>
@@ -348,7 +314,7 @@ Actual is: &apos;Log out&apos; displays
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Hi\AppData\Local\Temp\testng-eclipse--264010413\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\lan.le\AppData\Local\Temp\testng-eclipse-780679885\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -399,38 +365,38 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(7);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC07')
+data.setCell(0, 1, 'TC01')
 data.setCell(0, 2, 'Railway.LoginTest')
-data.setCell(0, 3, 5668);
+data.setCell(0, 3, 10671);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'TC06')
 data.setCell(1, 2, 'Railway.LoginTest')
-data.setCell(1, 3, 5371);
+data.setCell(1, 3, 5417);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'TC01')
+data.setCell(2, 1, 'TC07')
 data.setCell(2, 2, 'Railway.LoginTest')
-data.setCell(2, 3, 4030);
+data.setCell(2, 3, 5300);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'TC05')
 data.setCell(3, 2, 'Railway.LoginTest')
-data.setCell(3, 3, 3951);
+data.setCell(3, 3, 4229);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'TC03')
 data.setCell(4, 2, 'Railway.LoginTest')
-data.setCell(4, 3, 1561);
+data.setCell(4, 3, 1482);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'TC02')
 data.setCell(5, 2, 'Railway.LoginTest')
-data.setCell(5, 3, 1312);
+data.setCell(5, 3, 1396);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'TC04')
 data.setCell(6, 2, 'Railway.LoginTest')
-data.setCell(6, 3, 1099);
+data.setCell(6, 3, 1132);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 22 seconds</span>
+              <span class="suite-total-time">Total running time: 29 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -463,41 +429,39 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">TC01</span>
-                <span class="method-start">6937 ms</span>
+                <span class="method-start">6944 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TC02</span>
-                <span class="method-start">10969 ms</span>
+                <span class="method-start">17621 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC03</span>
-                <span class="method-start">12282 ms</span>
+                <span class="method-start">19018 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TC04</span>
-                <span class="method-start">13845 ms</span>
+                <span class="method-start">20502 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC05</span>
-                <span class="method-start">14945 ms</span>
+                <span class="method-start">21634 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">TC06</span>
-                <span class="method-start">18897 ms</span>
+                <span class="method-start">25865 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TC07</span>
-                <span class="method-start">24270 ms</span>
+                <span class="method-start">31283 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">29939 ms</span>
+                <span class="method-start">36584 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
