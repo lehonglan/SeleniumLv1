@@ -77,17 +77,18 @@ public class LoginTest {
 
 		softAssertion.assertTrue(Utilities.isTabDisplay("Log out"), Fail.ElementIsNotShown("Tab Logout"));
 		softAssertion.assertTrue(Utilities.isTabDisplay("My ticket"), Fail.ElementIsNotShown("Tab My ticket"));
-		softAssertion.assertTrue(Utilities.isTabDisplay("Change password"),
-				Fail.ElementIsNotShown("Tab Change password"));
+		softAssertion.assertTrue(Utilities.isTabDisplay("Change password"), Fail.ElementIsNotShown("Tab Change password"));
 
 		GeneralPage.getTab("My ticket").click();
-		Utilities.softAssertCheckTextElement(general.getPageTitle().getText(), MyTicketMessages.TITLE);
+		softAssertion.assertEquals(general.getPageTitle().getText(), MyTicketMessages.TITLE,
+				Fail.CompareText(general.getPageTitle().getText(), MyTicketMessages.TITLE));
 
 		GeneralPage.getTab("Change password").click();
-		Utilities.softAssertCheckTextElement(general.getPageTitle().getText(), ChangePasswordMessages.TITLE);
+		softAssertion.assertEquals(general.getPageTitle().getText(), ChangePasswordMessages.TITLE,
+				Fail.CompareText(general.getPageTitle().getText(), ChangePasswordMessages.TITLE));
 
-		softAssertion.assertAll();
 		Utilities.logOut();
+		softAssertion.assertAll();
 	}
 
 	@Test(description = "User can create new account")

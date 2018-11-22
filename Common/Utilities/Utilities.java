@@ -5,14 +5,13 @@ import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Railway.GeneralPage;
 
 public class Utilities {
 
-	private static final SoftAssert softAssertion = new SoftAssert();
+//	private static final SoftAssert softAssertion = new SoftAssert();
 
 	public static void openChrome() {
 		System.setProperty("webdriver.chrome.driver", "Executables\\chromedriver.exe");
@@ -51,10 +50,12 @@ public class Utilities {
 				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
 	}
 
-	public static void softAssertCheckTextElement(String actual, String expected) {
-		softAssertion.assertEquals(actual, expected,
-				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
-		softAssertion.assertAll();
-	}
+//	public static void softAssertCheckTextElement(String actual, String expected) {
+//		try {
+//		softAssertion.assertEquals(actual, expected,
+//				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
+//		} catch (Exception e) {
+//		}
+//	}
 
 }
