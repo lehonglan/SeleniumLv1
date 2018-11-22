@@ -16,8 +16,8 @@ import Utilities.Utilities;
 public class LoginTest {
 
 	private static final HomePage homePage = new HomePage();
-	private static final GeneralPage general = new GeneralPage();
-	private static final LoginPage submit = new LoginPage();
+	private static final GeneralPage generalPage = new GeneralPage();
+	private static final LoginPage loginPage = new LoginPage();
 	private static final RegisterPage registerPage = new RegisterPage();
 	private static final SoftAssert softAssertion = new SoftAssert();
 
@@ -35,46 +35,46 @@ public class LoginTest {
 	@Test(description = "User can log into Railway with valid username and password")
 	public void TC01() {
 		GeneralPage.getTab("Login").click();
-		submit.login(Constant.USERNAME, Constant.PASSWORD);
-		Utilities.assertCheckTextElement(general.getWelcomeMessage(), LoginMessages.SUCCESS);
+		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+		Utilities.assertCheckTextElement(generalPage.getWelcomeMessage(), LoginMessages.SUCCESS);
 		Utilities.logOut();
 	}
 
 	@Test(description = "User can't login with blank 'Username' textbox")
 	public void TC02() {
 		GeneralPage.getTab("Login").click();
-		submit.login("", Constant.PASSWORD);
-		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL);
+		loginPage.login("", Constant.PASSWORD);
+		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL);
 		Utilities.logOut();
 	}
 
 	@Test(description = "User cannot log into Railway with invalid password")
 	public void TC03() {
 		GeneralPage.getTab("Login").click();
-		submit.login(Constant.USERNAME, "INVALIDPASS");
-		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL);
+		loginPage.login(Constant.USERNAME, "INVALIDPASS");
+		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL);
 		Utilities.logOut();
 	}
 
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
 		GeneralPage.getTab("Book ticket").click();
-		Utilities.assertCheckTextElement(general.getTitle(), LoginMessages.TITLE);
+		Utilities.assertCheckTextElement(generalPage.getTitle(), LoginMessages.TITLE);
 		Utilities.logOut();
 	}
 
 	@Test(description = "System shows message when user enters wrong password several times")
 	public void TC05() {
 		GeneralPage.getTab("Login").click();
-		submit.login(Constant.USERNAME, "INVALIDPASS", 4);
-		Utilities.assertCheckTextElement(submit.getLoginErrorMessage(), LoginMessages.FAIL4TIMES);
+		loginPage.login(Constant.USERNAME, "INVALIDPASS", 4);
+		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL4TIMES);
 		Utilities.logOut();
 	}
 
 	@Test(description = "Additional pages display once user logged in")
 	public void TC06() {
 		GeneralPage.getTab("Login").click();
-		submit.login(Constant.USERNAME, Constant.PASSWORD);
+		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 		
 		softAssertion.assertTrue(Utilities.isTabDisplay("Log out"), Fail.ElementIsNotShown("Tab Logout")); /*Check if the tab is available*/
 		softAssertion.assertEquals(GeneralPage.getTab("Log out").getText(), LogoutMessages.TABNAME,
@@ -87,12 +87,12 @@ public class LoginTest {
 				Fail.CompareText(GeneralPage.getTab("Change password").getText(), ChangePasswordMessages.TABNAME));
 
 		GeneralPage.getTab("My ticket").click();
-		softAssertion.assertEquals(general.getPageTitle().getText(), MyTicketMessages.TITLE,
-				Fail.CompareText(general.getPageTitle().getText(), MyTicketMessages.TITLE));
+		softAssertion.assertEquals(generalPage.getPageTitle().getText(), MyTicketMessages.TITLE,
+				Fail.CompareText(generalPage.getPageTitle().getText(), MyTicketMessages.TITLE));
 
 		GeneralPage.getTab("Change password").click();
-		softAssertion.assertEquals(general.getPageTitle().getText(), ChangePasswordMessages.TITLE,
-				Fail.CompareText(general.getPageTitle().getText(), ChangePasswordMessages.TITLE));
+		softAssertion.assertEquals(generalPage.getPageTitle().getText(), ChangePasswordMessages.TITLE,
+				Fail.CompareText(generalPage.getPageTitle().getText(), ChangePasswordMessages.TITLE));
 
 		Utilities.logOut();
 		softAssertion.assertAll();
