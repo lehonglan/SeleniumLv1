@@ -7,12 +7,20 @@ import Constant.Constant;
 
 public class ChangePasswordPage {
 	
-	public WebElement getBtnLogin() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//input[@value='login']"));
+	public WebElement getBtnChangePassword() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//input[@value='Change Password']"));
 	}
 	
 	public WebElement getBox(String boxname) {
 		return Constant.WEBDRIVER.findElement(By.id(boxname));
+	}
+	
+	public String getMessageSuccess() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message success']")).getText();
+	}
+	
+	public String getMessageError() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
 	}
 	
 	public void changePassword(String currentpass, String newpass, String confirmpass) {
@@ -22,6 +30,6 @@ public class ChangePasswordPage {
 		getBox("currentPassword").sendKeys(currentpass);
 		getBox("newPassword").sendKeys(newpass);
 		getBox("confirmPassword").sendKeys(confirmpass);
-		getBtnLogin().click();
+		getBtnChangePassword().click();
 	}
 }

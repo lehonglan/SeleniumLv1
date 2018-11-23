@@ -32,7 +32,7 @@ public class HomePage extends GeneralPage {
 	
 	public void logOut() {
 		try {
-			openTab(Constant.tabNameString.tabLogout.getValue());
+			openTab(Constant.tabNameString.tabLogout.getText());
 		} catch (Exception e) {
 		}
 	}

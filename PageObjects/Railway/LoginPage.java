@@ -12,17 +12,13 @@ public class LoginPage {
 		return Constant.WEBDRIVER.findElement(By.xpath("//input[@value='login']"));
 	}
 
-	public WebElement getLblLoginErrorMsg() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']"));
-	}
-
 	public WebElement getBox(String boxname) {
 		return Constant.WEBDRIVER.findElement(By.id(boxname));
 	}
 
 	// Methods
 	public String getLoginErrorMessage() {
-		return this.getLblLoginErrorMsg().getText();
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']")).getText();
 	}
 
 	public void login(String username, String password) {

@@ -27,5 +27,4 @@ public class GeneralPage {
 	public String getCurrentTitle() {
 		return getPageTitle().getText();
 	}
-
 }

@@ -7,12 +7,22 @@ import org.testng.annotations.Test;
 import Constant.Constant;
 import Utilities.Utilities;
 
-public class RegisterTest extends TestBase{
+public class RegisterTest extends TestBase {
 	@Test(description = "User can create new account")
 	public void TC07() {
-		homePage.openTab(Constant.tabNameString.tabRegister.getValue());
-		registerPage.register(Utilities.generateMail(), Constant.REGISTER_PASS, Constant.REGISTER_PASS, Constant.REGISTER_PID);
-		assertEquals(generalPage.getCurrentTitle(), Constant.Register.TITLE);
+		homePage.openTab(Constant.tabNameString.tabRegister.getText());
+		registerPage.register(Utilities.generateMail(), Constant.Register.PASSWORD, Constant.Register.PASSWORD,
+				Constant.Register.PID);
+		assertEquals(generalPage.getCurrentTitle(), Constant.Register.SUCCESS);
+		homePage.logOut();
+	}
+
+	@Test(description = "User can't create account with 'Confirm password' is not the same with 'Password'")
+	public void TC10() {
+		homePage.openTab(Constant.tabNameString.tabRegister.getText());
+		registerPage.register(Utilities.generateMail(), Constant.Register.PASSWORD, Constant.Register.PASSWORD + "1",
+				Constant.Register.PID);
+		assertEquals(registerPage.getMessageError(), Constant.Register.ERROR);
 		homePage.logOut();
 	}
 }

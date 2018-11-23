@@ -15,6 +15,10 @@ public class RegisterPage {
 	}
 
 	// Methods
+	public String getMessageError() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
+	}
+	
 	public static WebElement getBox(String boxname) {
 		return Constant.WEBDRIVER.findElement(By.id(boxname));
 	}
