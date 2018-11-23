@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestAll]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="All(failed)">
+    <classes>
+      <class name="Railway.RegisterTest">
+        <methods>
+          <include name="TC07"/>
+          <include name="beforeClass"/>
+          <include name="suiteEnd"/>
+          <include name="TC10"/>
+          <include name="afterClass"/>
+          <include name="suiteStart"/>
+        </methods>
+      </class> <!-- Railway.RegisterTest -->
+      <class name="Railway.LoginTest">
+        <methods>
+          <include name="TC05"/>
+          <include name="beforeClass"/>
+          <include name="TC03"/>
+          <include name="suiteEnd"/>
+          <include name="afterClass"/>
+          <include name="suiteStart"/>
+        </methods>
+      </class> <!-- Railway.LoginTest -->
+    </classes>
+  </test> <!-- All(failed) -->
+</suite> <!-- Failed suite [TestAll] -->
