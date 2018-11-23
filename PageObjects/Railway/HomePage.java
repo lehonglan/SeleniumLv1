@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
-import Constant.Constant.tabNameString;
 
 public class HomePage extends GeneralPage {
 	
@@ -37,5 +36,4 @@ public class HomePage extends GeneralPage {
 		} catch (Exception e) {
 		}
 	}
-
 }
