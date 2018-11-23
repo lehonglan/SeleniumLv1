@@ -1,15 +1,12 @@
 package Railway;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import Constant.Constant;
-import Messages.ChangePasswordMessages;
-import Messages.LoginMessages;
-import Messages.MyTicketMessages;
-import Messages.RegisterMessages;
-import Messages.TabName;
 import Messages.Fail;
 import Utilities.Utilities;
 
@@ -34,70 +31,73 @@ public class LoginTest {
 
 	@Test(description = "User can log into Railway with valid username and password")
 	public void TC01() {
-		GeneralPage.getTab(TabName.tabLogin).click();
+		homePage.openTab(Constant.tabNameString.tabLogin.getValue());
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-		Utilities.assertCheckTextElement(generalPage.getWelcomeMessage(), LoginMessages.SUCCESS);
-		Utilities.logOut();
+		assertEquals(generalPage.getWelcomeMessage(),Constant.Login.SUCCESS);
+		homePage.logOut();
 	}
 
 	@Test(description = "User can't login with blank 'Username' textbox")
 	public void TC02() {
-		GeneralPage.getTab(TabName.tabLogin).click();
+		homePage.openTab(Constant.tabNameString.tabLogin.getValue());
 		loginPage.login("", Constant.PASSWORD);
-		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL);
-		Utilities.logOut();
+		assertEquals(loginPage.getLoginErrorMessage(),Constant.Login.FAIL);
+		homePage.logOut();
 	}
 
 	@Test(description = "User cannot log into Railway with invalid password")
 	public void TC03() {
-		GeneralPage.getTab(TabName.tabLogin).click();
+		homePage.openTab(Constant.tabNameString.tabLogin.getValue());
 		loginPage.login(Constant.USERNAME, "INVALIDPASS");
-		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL);
-		Utilities.logOut();
+		assertEquals(loginPage.getLoginErrorMessage(),Constant.Login.FAIL);
+		homePage.logOut();
 	}
 
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
-		GeneralPage.getTab(TabName.tabBookTicket).click();
-		Utilities.assertCheckTextElement(generalPage.getTitle(), LoginMessages.TITLE);
-		Utilities.logOut();
+		homePage.openTab(Constant.tabNameString.tabBookTicket.getValue());
+		assertEquals(generalPage.getCurrentTitle(),Constant.Login.TITLE);
+		homePage.logOut();
 	}
 
 	@Test(description = "System shows message when user enters wrong password several times")
 	public void TC05() {
-		GeneralPage.getTab(TabName.tabLogin).click();
+		homePage.openTab(Constant.tabNameString.tabLogin.getValue());
 		loginPage.login(Constant.USERNAME, "INVALIDPASS", 4);
-		Utilities.assertCheckTextElement(loginPage.getLoginErrorMessage(), LoginMessages.FAIL4TIMES);
-		Utilities.logOut();
+		assertEquals(loginPage.getLoginErrorMessage(),Constant.Login.FAIL4TIMES);
+		homePage.logOut();
 	}
 
 	@Test(description = "Additional pages display once user logged in")
 	public void TC06() {
-		GeneralPage.getTab(TabName.tabLogin).click();
+		homePage.openTab(Constant.tabNameString.tabLogin.getValue());
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 		
-		softAssertion.assertTrue(Utilities.isTabDisplay(TabName.tabLogout), Fail.ElementIsNotShown(TabName.tabLogout));
-		softAssertion.assertTrue(Utilities.isTabDisplay(TabName.tabMyTicket), Fail.ElementIsNotShown(TabName.tabMyTicket));
-		softAssertion.assertTrue(Utilities.isTabDisplay(TabName.tabChangePassword),	Fail.ElementIsNotShown(TabName.tabChangePassword));
+		softAssertion.assertTrue(Utilities.isTabDisplay(Constant.tabNameString.tabLogin.getValue()), 
+				Fail.ElementIsNotShown(Constant.tabNameString.tabLogin.getValue()));
+		softAssertion.assertTrue(Utilities.isTabDisplay(Constant.tabNameString.tabMyTicket.getValue()), 
+				Fail.ElementIsNotShown(Constant.tabNameString.tabMyTicket.getValue()));
+		softAssertion.assertTrue(Utilities.isTabDisplay(Constant.tabNameString.tabChangePassword.getValue()), 
+				Fail.ElementIsNotShown(Constant.tabNameString.tabChangePassword.getValue()));
 
-		GeneralPage.getTab(TabName.tabMyTicket).click();
-		softAssertion.assertEquals(generalPage.getPageTitle().getText(), MyTicketMessages.TITLE,
-				Fail.CompareText(generalPage.getPageTitle().getText(), MyTicketMessages.TITLE));
+		homePage.openTab(Constant.tabNameString.tabMyTicket.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentTitle(), Constant.tabNameString.tabMyTicket.getValue(),
+				Fail.CompareText(generalPage.getCurrentTitle(), Constant.tabNameString.tabMyTicket.getValue()));
 
-		GeneralPage.getTab(TabName.tabChangePassword).click();
-		softAssertion.assertEquals(generalPage.getPageTitle().getText(), ChangePasswordMessages.TITLE,
-				Fail.CompareText(generalPage.getPageTitle().getText(), ChangePasswordMessages.TITLE));
+		homePage.openTab(Constant.tabNameString.tabChangePassword.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentTitle(), Constant.tabNameString.tabChangePassword.getValue(),
+				Fail.CompareText(generalPage.getCurrentTitle(), Constant.tabNameString.tabChangePassword.getValue()));
 
-		Utilities.logOut();
+		homePage.logOut();
 		softAssertion.assertAll();
 	}
 
 	@Test(description = "User can create new account")
 	public void TC07() {
-		GeneralPage.getTab(TabName.tabRegister).click();
+		homePage.openTab(Constant.tabNameString.tabRegister.getValue());
 		registerPage.register("username" + Utilities.randomNumber(9999999) + "@logigiear.com", Constant.REGISTER_PASS,
 				Constant.REGISTER_PASS, Constant.REGISTER_PID);
-		Utilities.assertCheckTextElement(registerPage.getRegisterSuccessMessage().getText(), RegisterMessages.TITLE);
-		Utilities.logOut();
+		assertEquals(generalPage.getCurrentTitle(), Constant.Register.TITLE);
+		homePage.logOut();
 	}
 }

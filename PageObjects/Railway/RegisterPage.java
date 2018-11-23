@@ -8,15 +8,10 @@ import Constant.Constant;
 public class RegisterPage {
 	// Locators
 	private final By registerButton = By.xpath("//input[@value='Register']");
-	private final By registerSuccessMessage = By.xpath("//h1");
 
 	// Elements
 	public WebElement getRegisterButton() {
 		return Constant.WEBDRIVER.findElement(registerButton);
-	}
-
-	public WebElement getRegisterSuccessMessage() {
-		return Constant.WEBDRIVER.findElement(registerSuccessMessage);
 	}
 
 	// Methods

@@ -2,16 +2,17 @@ package Utilities;
 
 import java.util.Random;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import Constant.Constant;
-import Railway.GeneralPage;
+import Constant.Constant.tabNameString;
+import Railway.HomePage;
 
 public class Utilities {
 
-//	private static final SoftAssert softAssertion = new SoftAssert();
+private static final HomePage homePage = new HomePage();
 
 	public static void openChrome() {
 		System.setProperty("webdriver.chrome.driver", "Executables\\chromedriver.exe");
@@ -29,18 +30,10 @@ public class Utilities {
 		Constant.WEBDRIVER.quit();
 	}
 
-	public static void logOut() {
-		try {
-			GeneralPage.getTab("Log out").click();
-		} catch (Exception e) {
-		}
-	}
-
 	public static boolean isTabDisplay(String tabname) {
 		try {
-			return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[contains(text(),'%s')]", tabname)))
-					.isDisplayed();
-		} catch (Exception e) {
+			return homePage.getTab(tabname).isDisplayed();
+		} catch (NoSuchElementException e) {
 			return false;
 		}
 	}
@@ -49,13 +42,5 @@ public class Utilities {
 		Assert.assertEquals(actual, expected,
 				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
 	}
-
-//	public static void softAssertCheckTextElement(String actual, String expected) {
-//		try {
-//		softAssertion.assertEquals(actual, expected,
-//				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
-//		} catch (Exception e) {
-//		}
-//	}
 
 }

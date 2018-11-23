@@ -20,7 +20,7 @@ public class LoginPage {
 		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
 	}
 
-	public static WebElement getBox(String boxname) {
+	public WebElement getBox(String boxname) {
 		return Constant.WEBDRIVER.findElement(By.id(boxname));
 	}
 
