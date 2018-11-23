@@ -7,17 +7,13 @@ import Constant.Constant;
 
 public class LoginPage {
 
-	// Locators
-	private final By btnLogin = By.xpath("//input[@value='login']");
-	private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-
 	// Elements
 	public WebElement getBtnLogin() {
-		return Constant.WEBDRIVER.findElement(btnLogin);
+		return Constant.WEBDRIVER.findElement(By.xpath("//input[@value='login']"));
 	}
 
 	public WebElement getLblLoginErrorMsg() {
-		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']"));
 	}
 
 	public WebElement getBox(String boxname) {

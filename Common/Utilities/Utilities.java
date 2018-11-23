@@ -1,13 +1,9 @@
 package Utilities;
 
-import java.util.Random;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 
 import Constant.Constant;
-import Constant.Constant.tabNameString;
 import Railway.HomePage;
 
 public class Utilities {
@@ -20,9 +16,9 @@ private static final HomePage homePage = new HomePage();
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
 
-	public static int randomNumber(int range) {
-		Random randomGenerator = new Random();
-		return randomGenerator.nextInt(range);
+	public static String generateMail() {
+		String t = String.valueOf(System.currentTimeMillis());
+		return String.format("username%s@logigiear.com", t.substring(5,t.length()));
 	}
 
 	public static void closeBrowser() {
@@ -37,10 +33,4 @@ private static final HomePage homePage = new HomePage();
 			return false;
 		}
 	}
-
-	public static void assertCheckTextElement(String actual, String expected) {
-		Assert.assertEquals(actual, expected,
-				"\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
-	}
-
 }
