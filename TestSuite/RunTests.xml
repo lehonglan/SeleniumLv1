@@ -1,17 +1,16 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">	
 
-<suite name="TestAll" parallel="tests">
-
-	<test name="Login">
-		<classes>
-			<class name="Railway.LoginTest" />
-		</classes>
-	</test>
-
-	<test name="Register">
-		<classes>
-			<class name="Railway.RegisterTest" />
-		</classes>
-	</test>
-	
+<suite name="TestAll" annotations="JDK">
+         
+  <test name="Login">
+	 <classes>
+	   <class name="Railway.LoginTest"/>
+	 </classes>
+   </test>
+   
+  <test name="Register">
+     <classes>
+       <class name="Railway.RegisterTest"/>
+     </classes>
+   </test>
 </suite>

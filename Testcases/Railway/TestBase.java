@@ -14,13 +14,13 @@ public class TestBase {
 	protected static final GeneralPage generalPage = new GeneralPage();
 	protected static final ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 	
-	@BeforeSuite
-    public void suiteStart() {
-    }
-	
-	@AfterSuite
-	public void suiteEnd() {
-    }
+//	@BeforeSuite
+//    public void suiteStart() {
+//    }
+//	
+//	@AfterSuite
+//	public void suiteEnd() {
+//    }
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -32,4 +32,5 @@ public class TestBase {
 	public void afterClass() {
 		Utilities.closeBrowser();
 	}
+	
 }

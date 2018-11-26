@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Constant {
 
 	public static WebDriver WEBDRIVER;
-	public static final String RAILWAY_URL = "http://localhost:8888";
+	public static final String RAILWAY_URL = "http://192.168.189.206:8888";
 
 	public class InactiveAccount {
 		public static final String USERNAME = "lan.le+99@logigear.com";
@@ -14,7 +14,7 @@ public class Constant {
 	
 	public class ChangePassword {
 		public static final String TITLE = "Change password";
-		public static final String SUCCESS = "Your password has been updated!";
+		public static final String SUCCESS = "Your password has been updated";
 	}
 
 	public class Login {

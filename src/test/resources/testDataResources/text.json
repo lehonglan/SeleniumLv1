@@ -1,0 +1,14 @@
+[
+	{
+          "railwayURL": "http://192.168.189.206:8888",
+          "inputLogin":	{
+              "username": "lan.le@logigear.com",
+              "password": "Boom02122015"
+          },
+          
+          "messageLogin":	{
+            "success": "Welcome ",
+            "error": "There was a problem with your login and/or errors exist in your form."
+          }
+	}
+]

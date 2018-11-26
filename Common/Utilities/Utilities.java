@@ -4,12 +4,15 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.github.javafaker.Faker;
+
 import Constant.Constant;
 import Railway.HomePage;
 
 public class Utilities {
 
 	private static final HomePage homePage = new HomePage();
+	private static final Faker fake = new Faker();
 
 	public static void openChrome() {
 		System.setProperty("webdriver.chrome.driver", "Executables\\chromedriver.exe");
@@ -18,10 +21,10 @@ public class Utilities {
 	}
 
 	public static String generateMail() {
-		String t = String.valueOf(System.currentTimeMillis());
-		return String.format("username%s@logigear.com", t.substring(5,t.length()));		
-//		return (fake.name().name().toString().replaceAll(" ", "").toLowerCase() + fake.number().digits(6).toString()
-//				+ "@logigear.com");
+//		String t = String.valueOf(System.currentTimeMillis());
+//		return String.format("username%s@logigear.com", t.substring(5,t.length()));		
+		return (fake.name().name().toString().substring(0, 6).replaceAll(" ", "").toLowerCase() + fake.number().digits(4).toString()
+				+ "@logigear.com");
 	}
 
 	public static void closeBrowser() {
