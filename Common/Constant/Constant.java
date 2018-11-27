@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Constant {
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = "http://192.168.189.206:8888";
+	public static String RAILWAY_URL = "http://localhost:8888";
 	public static String MAILINATOR_URL = "https://www.mailinator.com/v3/#/#inboxpane";
 
 	public static class InactiveAccount {
