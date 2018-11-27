@@ -4,14 +4,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import Utilities.Utilities;
+import Constant.Constant;
 
 public class TestBase {
 
-	protected static final HomePage homePage = new HomePage();
-	protected static final RegisterPage registerPage = new RegisterPage();
-	protected static final GeneralPage generalPage = new GeneralPage();
-	protected static final ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-	protected static final Constant.Text text = new Constant.Text();
+	protected static HomePage homePage = new HomePage();
+	protected static RegisterPage registerPage = new RegisterPage();
+	protected static GeneralPage generalPage = new GeneralPage();
+	protected static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
+	protected static Utilities utilities = new Utilities();
+	protected static LoginPage loginPage = new LoginPage();
+//	protected static Constant.Text text = new Constant.Text();
 
 //	@BeforeSuite
 //    public void suiteStart() {
@@ -23,8 +26,7 @@ public class TestBase {
 
 	@BeforeClass
 	public void beforeClass() {
-		Utilities.openChrome();
-		homePage.open();
+		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
 	}
 
 	@AfterClass

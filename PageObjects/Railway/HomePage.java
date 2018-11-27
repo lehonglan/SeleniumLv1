@@ -4,15 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
+import Constant.Constant.tabName;
 
-public class HomePage extends GeneralPage {
-	
+
+
+public class HomePage {
 	//Locators
 	
 	//Elements
-	public WebElement getTab(String tabname)
+	public WebElement getTab(String name)
 	{
-		return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[contains(text(),'%s')]", tabname)));
+		return Constant.WEBDRIVER.findElement(By.xpath(String.format("//span[contains(text(),'%s')]", name)));
 	}
 	
 	//Methods
@@ -22,17 +24,17 @@ public class HomePage extends GeneralPage {
 		return this;
 	}
 	
-	public void openTab(String tabname) {
-		getTab(tabname).click();
+	public void openTab(tabName	name) {
+		getTab(name.getValue()).click();
 	}
 	
-	public void getTabName(String tabname) {
-		getTab(tabname).getText();
+	public void getTabName(tabName name) {
+		getTab(name.getValue()).getText();
 	}
 	
 	public void logOut() {
 		try {
-			openTab(Constant.tabNameString.tabLogout.getText());
+			openTab(tabName.LOGOUT);
 		} catch (Exception e) {
 		}
 	}

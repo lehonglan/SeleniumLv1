@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="7" failed="3" skipped="0">
+<testng-results ignored="0" total="8" passed="5" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-11-26T10:21:00Z" name="TestAll" finished-at="2018-11-26T10:21:23Z" duration-ms="23580">
+  <suite started-at="2018-11-27T09:03:22Z" name="Default suite" finished-at="2018-11-27T09:03:36Z" duration-ms="13770">
     <groups>
     </groups>
-    <test started-at="2018-11-26T10:21:00Z" name="Login" finished-at="2018-11-26T10:21:12Z" duration-ms="12698">
+    <test started-at="2018-11-27T09:03:22Z" name="Default test" finished-at="2018-11-27T09:03:36Z" duration-ms="13770">
       <class name="Railway.LoginTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:00Z" name="beforeClass" finished-at="2018-11-26T10:21:04Z" duration-ms="4282" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:22Z" name="beforeClass" finished-at="2018-11-27T09:03:29Z" duration-ms="6557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="TC01()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:04Z" name="TC01" description="User can log into Railway with valid username and password" finished-at="2018-11-26T10:21:06Z" duration-ms="2074" status="PASS">
+        <test-method signature="TC01()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:29Z" name="TC01" description="User can log into Railway with valid username and password" finished-at="2018-11-27T09:03:29Z" duration-ms="938" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC01 -->
-        <test-method signature="TC02()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:06Z" name="TC02" description="User can&#039;t login with blank &#039;Username&#039; textbox" finished-at="2018-11-26T10:21:07Z" duration-ms="441" status="PASS">
+        <test-method signature="TC02()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:30Z" name="TC02" description="User can&#039;t login with blank &#039;Username&#039; textbox" finished-at="2018-11-27T09:03:30Z" duration-ms="447" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC02 -->
-        <test-method signature="TC03()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:07Z" name="TC03" description="User cannot log into Railway with invalid password" finished-at="2018-11-26T10:21:07Z" duration-ms="572" status="FAIL">
+        <test-method signature="TC03()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:30Z" name="TC03" description="User cannot log into Railway with invalid password" finished-at="2018-11-27T09:03:30Z" duration-ms="542" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]]]>
@@ -32,7 +32,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:453)
 at org.testng.Assert.assertEquals(Assert.java:463)
-at Railway.LoginTest.TC03(LoginTest.java:36)
+at Railway.LoginTest.TC03(LoginTest.java:38)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -64,11 +64,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC03 -->
-        <test-method signature="TC04()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:07Z" name="TC04" description="Login page displays when un-logged User clicks on &#039;Book ticket&#039; tab" finished-at="2018-11-26T10:21:07Z" duration-ms="203" status="PASS">
+        <test-method signature="TC04()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:30Z" name="TC04" description="Login page displays when un-logged User clicks on &#039;Book ticket&#039; tab" finished-at="2018-11-27T09:03:31Z" duration-ms="187" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC04 -->
-        <test-method signature="TC05()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:07Z" name="TC05" description="System shows message when user enters wrong password several times" finished-at="2018-11-26T10:21:09Z" duration-ms="1926" status="FAIL">
+        <test-method signature="TC05()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:31Z" name="TC05" description="System shows message when user enters wrong password several times" finished-at="2018-11-27T09:03:32Z" duration-ms="1689" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.] but found [Invalid username or password. Please try again.]]]>
@@ -81,7 +81,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:453)
 at org.testng.Assert.assertEquals(Assert.java:463)
-at Railway.LoginTest.TC05(LoginTest.java:51)
+at Railway.LoginTest.TC05(LoginTest.java:53)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -113,15 +113,15 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC05 -->
-        <test-method signature="TC06()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:09Z" name="TC06" description="Additional pages display once user logged in" finished-at="2018-11-26T10:21:10Z" duration-ms="1071" status="PASS">
+        <test-method signature="TC06()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:32Z" name="TC06" description="Additional pages display once user logged in" finished-at="2018-11-27T09:03:33Z" duration-ms="1025" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC06 -->
-        <test-method signature="TC08()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:10Z" name="TC08" description="User can&#039;t login with an account hasn&#039;t been activated" finished-at="2018-11-26T10:21:11Z" duration-ms="435" status="PASS">
+        <test-method signature="TC08()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:33Z" name="TC08" description="User can&#039;t login with an account hasn&#039;t been activated" finished-at="2018-11-27T09:03:34Z" duration-ms="432" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC08 -->
-        <test-method signature="TC09()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:11Z" name="TC09" description="User can change password" finished-at="2018-11-26T10:21:12Z" duration-ms="1053" status="FAIL">
+        <test-method signature="TC09()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:34Z" name="TC09" description="User can change password" finished-at="2018-11-27T09:03:35Z" duration-ms="1269" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Your password has been updated] but found [Your password has been updated!]]]>
@@ -134,7 +134,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:453)
 at org.testng.Assert.assertEquals(Assert.java:463)
-at Railway.LoginTest.TC09(LoginTest.java:91)
+at Railway.LoginTest.TC09(LoginTest.java:93)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -166,31 +166,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC09 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.LoginTest@4ef37659]" started-at="2018-11-26T10:21:12Z" name="afterClass" finished-at="2018-11-26T10:21:12Z" duration-ms="616" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.LoginTest@76055d02]" started-at="2018-11-27T09:03:35Z" name="afterClass" finished-at="2018-11-27T09:03:36Z" duration-ms="651" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- Railway.LoginTest -->
-    </test> <!-- Login -->
-    <test started-at="2018-11-26T10:21:13Z" name="Register" finished-at="2018-11-26T10:21:23Z" duration-ms="10830">
-      <class name="Railway.RegisterTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.RegisterTest@34f7cfd9]" started-at="2018-11-26T10:21:13Z" name="beforeClass" finished-at="2018-11-26T10:21:16Z" duration-ms="3657" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method signature="TC07()[pri:0, instance:Railway.RegisterTest@34f7cfd9]" started-at="2018-11-26T10:21:16Z" name="TC07" description="User can create new account" finished-at="2018-11-26T10:21:22Z" duration-ms="5903" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC07 -->
-        <test-method signature="TC10()[pri:0, instance:Railway.RegisterTest@34f7cfd9]" started-at="2018-11-26T10:21:22Z" name="TC10" description="User can&#039;t create account with &#039;Confirm password&#039; is not the same with &#039;Password&#039;" finished-at="2018-11-26T10:21:23Z" duration-ms="668" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC10 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.RegisterTest@34f7cfd9]" started-at="2018-11-26T10:21:23Z" name="afterClass" finished-at="2018-11-26T10:21:23Z" duration-ms="599" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- Railway.RegisterTest -->
-    </test> <!-- Register -->
-  </suite> <!-- TestAll -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

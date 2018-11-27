@@ -5,68 +5,89 @@ import org.openqa.selenium.WebDriver;
 public class Constant {
 
 	public static WebDriver WEBDRIVER;
-	public static final String RAILWAY_URL = "http://192.168.189.206:8888";
+	public static String RAILWAY_URL = "http://192.168.189.206:8888";
+	public static String MAILINATOR_URL = "https://www.mailinator.com/v3/#/#inboxpane";
 
-	public class InactiveAccount {
-		public static final String USERNAME = "lan.le+99@logigear.com";
-		public static final String PASSWORD = "12345678";
+	public static class InactiveAccount {
+		public static String USERNAME = "lan.le+99@logigear.com";
+		public static String PASSWORD = "12345678";
+	}
+
+	public static class ChangePassword {
+		public static String SUCCESS = "Your password has been updated";
 	}
 	
-	public class ChangePassword {
-		public static final String TITLE = "Change password";
-		public static final String SUCCESS = "Your password has been updated";
+	public static class BackupAccount {
+		public static String USERNAME = "lan.le2702@mailinator.com";
+		public static String PASSWORD = "12345678";
+		public static String NEW_PASSWORD = PASSWORD + "1";
 	}
 
-	public class Login {
-		//Input
-		public static final String USERNAME = "lan.le@logigear.com";
-		public static final String PASSWORD = "Boom02122015";
-		//Expected
-		public static final String TITLE = "Login page";
-		public static final String SUCCESS = "Welcome " + USERNAME;
-		public static final String FAIL = "There was a problem with your login and/or errors exist in your form.";
-		public static final String FAIL4TIMES = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
-		public static final String INACTIVE_ACCOUNT = "Invalid username or password. Please try again.";
+	public static class Login {
+		// Input
+		public static String USERNAME = "lan.le@logigear.com";
+		public static String PASSWORD = "Boom02122015";
+		public static String FAIL = "There was a problem with your login and/or errors exist in your form.";
+		public static String FAIL4TIMES = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
+		public static String INACTIVE_ACCOUNT = "Invalid username or password. Please try again.";
+
+		public static String welcomeMessage(String username) {
+			return "Welcome " + username;
+		}
 	}
 
-	public class MyTicket {
-		public static final String TITLE = "Manage ticket";
+	public enum pageTitle {
+		LOGIN("Login page"),
+		CHANGEPASSWORD("Change password"),
+		MYTICKET("Manage ticket");
+
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private pageTitle(String value) {
+			this.value = value;
+		}
 	}
 
-	public class Register{
-		//Input
-		public static final String PASSWORD = "12345678";
-		public static final String PID = "0123456789";
-		//Expected
-		public static final String SUCCESS = "Thank you for registering your account";
-		public static final String ERROR = "There're errors in the form. Please correct the errors and try again.";
+	public static class Register {
+		// Input
+		public static String PASSWORD = "12345678";
+		public static String PID = "0123456789";
+		// Expected
+		public static String SUCCESS = "Thank you for registering your account";
+		public static String ERROR = "There're errors in the form. Please correct the errors and try again.";
 	}
 
-	public enum tabNameString {
-		tabLogin("Login"),
-		tabLogout("Log out"),
-		tabBookTicket("Book ticket"),
-		tabMyTicket("My ticket"),
-		tabChangePassword("Change password"),
-		tabRegister("Register");
+	public enum tabName {
+		LOGIN("Login"), 
+		LOGOUT("Log out"), 
+		BOOKTICKET("Book ticket"), 
+		MYTICKET("My ticket"),
+		CHANGEPASSWORD("Change password"), 
+		REGISTER("Register");
 
-		 private String value;
-		 public String getText() {
-		    return value;
-		 }
-		 private tabNameString(String value) {
-		  this.value = value;
-		 } 
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private tabName(String value) {
+			this.value = value;
+		}
 	}
-	
-	public static class returnFailMessage{
-		
-		public static String ElementIsNotShown (String element)	{
+
+	public static class ReturnFailMessage {
+
+		public static String tabIsNotShown(tabName element) {
 			return (element + " is not shown as expected");
 		}
-		
-		public static String CompareText (String actual, String expected) {
-			return ("\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
-		}
+
+//		public static String CompareText (String actual, String expected) {
+//			return ("\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
+//		}
 	}
 }
