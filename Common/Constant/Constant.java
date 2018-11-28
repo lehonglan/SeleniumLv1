@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Constant {
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = "http://192.168.189.206:8888";
+	public static String RAILWAY_URL = "http://localhost:8888";
 	public static String GUERRILLAMAI_URL = "https://www.guerrillamail.com/inbox";
 
 	public static class InactiveAccount {
@@ -18,8 +18,9 @@ public class Constant {
 	}
 	
 	public static class BackupAccount {
-		public static String USERNAME = "lan.le2702@mailinator.com";
-		public static String PASSWORD = "12345678";
+		public static String USERNAME = "lan.le.test.01";
+		public static String EMAIL = "lan.le.test.01@gmail.com";
+		public static String PASSWORD = "Lehonglan8180";
 		public static String NEW_PASSWORD = PASSWORD + "1";
 	}
 

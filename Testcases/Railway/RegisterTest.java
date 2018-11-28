@@ -32,7 +32,10 @@ public class RegisterTest extends TestBase {
 	
 	@Test(description = "test")
 	public void TC000() {
-		utilities.activeAccount(utilities.generateMail("@pokemail.net"));
+		homePage.openTab(tabName.REGISTER);
+		registerPage.register(utilities.generateMail("@gmail.com"), Constant.Register.PASSWORD, Constant.Register.PASSWORD, Constant.Register.PID);
+//		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS) ;
+		utilities.navigateToURLFromMail();
 		homePage.logOut();
 	}
 }

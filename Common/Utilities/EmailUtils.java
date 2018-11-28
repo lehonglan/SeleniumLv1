@@ -74,7 +74,7 @@ public class EmailUtils {
   public EmailUtils(String username, String password, String server, EmailFolder emailFolder) throws MessagingException {
     Properties props = System.getProperties();
     try {
-      props.load(new FileInputStream(new File("resources/email.properties")));
+      props.load(new FileInputStream(new File("src/test/resources/email.properties")));
     } catch(Exception e) {
       e.printStackTrace();
       System.exit(-1);

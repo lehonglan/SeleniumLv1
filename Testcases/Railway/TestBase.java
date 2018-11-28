@@ -3,8 +3,8 @@ package Railway;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import Utilities.Utilities;
 import Constant.Constant;
+import Utilities.Utilities;
 
 public class TestBase {
 
@@ -26,6 +26,7 @@ public class TestBase {
 
 	@BeforeClass
 	public void beforeClass() {
+		utilities.connectToMail();
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
 	}
 
