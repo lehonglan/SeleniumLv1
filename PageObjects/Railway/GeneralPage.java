@@ -8,7 +8,7 @@ import Constant.Constant;
 public class GeneralPage {
 
 	// Locators
-	private final By lblWelcomeMessage = By.xpath("//div[@class='account']");
+	private By lblWelcomeMessage = By.xpath("//div[@class='account']");
 
 	// Elements
 	public WebElement getLblWelcomeMessage() {

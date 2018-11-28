@@ -32,7 +32,7 @@ public class RegisterTest extends TestBase {
 	
 	@Test(description = "test")
 	public void TC000() {
-		utilities.activeAccount(utilities.generateMail("@mailinator.com"));
+		utilities.activeAccount(utilities.generateMail("@pokemail.net"));
 		homePage.logOut();
 	}
 }

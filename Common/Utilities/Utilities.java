@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.github.javafaker.Faker;
@@ -28,9 +29,9 @@ public class Utilities {
 		Constant.WEBDRIVER = new ChromeDriver();
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
-	
+	//chua co driver for firefox
 	public void openFirefox() {
-		System.setProperty("webdriver.firefox.driver", "Chua co");
+		System.setProperty("webdriver.firefox.driver", "abc");
 		Constant.WEBDRIVER = new FirefoxDriver();
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
@@ -64,24 +65,28 @@ public class Utilities {
 	     wait.until(ExpectedConditions.elementToBeClickable(element));
 	        }
 	
-	public void activeAccount(String email) {
-		homePage.openTab(tabName.REGISTER);
-		registerPage.register(email, Constant.Register.PASSWORD, Constant.Register.PASSWORD,
-				Constant.Register.PID);
-		Constant.WEBDRIVER.navigate().to(Constant.MAILINATOR_URL);
-//		openURLInBrowser(Constant.MAILINATOR_URL, "chrome");
-		WebElement inputField = Constant.WEBDRIVER.findElement(By.id("inbox_field"));
-		inputField.clear();
-		inputField.sendKeys(email);
-		WebElement searchBtn = Constant.WEBDRIVER.findElement(By.xpath("//span[@class='input-group-btn']"));
-		searchBtn.click();
-//		waitForElement(Constant.WEBDRIVER.findElement(By.xpath("//td[contains(text(),'Please confirm your account')]")));
-		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		Constant.WEBDRIVER.findElement(By.xpath("//td[contains(text(),'Please confirm your account')]")).click();
-		Constant.WEBDRIVER.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		WebElement activateLink = Constant.WEBDRIVER.findElement(By.xpath("//a[contains(@href,'confirmationCode')]"));
-		activateLink.click();
-	}
+//	public void activeAccount(String email) {
+//		homePage.openTab(tabName.REGISTER);
+//		registerPage.register(email, Constant.Register.PASSWORD, Constant.Register.PASSWORD,
+//				Constant.Register.PID);
+//		Constant.WEBDRIVER.navigate().to(Constant.GUERRILLAMAI_URL);
+//		WebElement inputButton = Constant.WEBDRIVER.findElement(By.id("inbox-id"));
+//		inputButton.click();
+//		WebElement inputField = Constant.WEBDRIVER.findElement(By.xpath("//span[@id='inbox-id']//input"));
+//		inputField.clear();
+//		inputField.sendKeys(email.replace("@pokemail.net", ""));
+//		Select dropDown = new Select(Constant.WEBDRIVER.findElement(By.id("gm-host-select")));
+//		dropDown.selectByVisibleText("pokemail.net");
+//		WebElement setButton = Constant.WEBDRIVER.findElement(By.xpath("//button[text()='Set']"));
+//		setButton.click();
+//		WebElement firstMail = Constant.WEBDRIVER.findElement(By.xpath("//span[contains(text(),'confirmation code')]/../a"));
+////		waitForElement(firstMail);
+//		Constant.WEBDRIVER.navigate().to(firstMail.);
+////		firstMail.getAttribute("href");
+//		firstMail.click();
+//		WebElement activateLink = Constant.WEBDRIVER.findElement(By.xpath("//a[contains(@href,'confirmationCode')]"));
+//		activateLink.click();
+//	}
 
 	public static void closeBrowser() {
 		System.out.println("Post-condition");
