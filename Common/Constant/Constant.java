@@ -56,6 +56,7 @@ public class Constant {
 	public static class Register {
 		// Input
 		public static String PASSWORD = "12345678";
+		public static String NEW_PASSWORD = PASSWORD + "1";
 		public static String PID = "0123456789";
 		// Expected
 		public static String SUCCESS = "Thank you for registering your account";
