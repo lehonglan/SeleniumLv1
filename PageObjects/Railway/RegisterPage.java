@@ -1,26 +1,17 @@
 package Railway;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
 
-public class RegisterPage {
+public class RegisterPage extends GeneralPage{
 	// Locators
-	private final By registerButton = By.xpath("//input[@value='Register']");
 
 	// Elements
-	public WebElement getRegisterButton() {
-		return Constant.WEBDRIVER.findElement(registerButton);
-	}
 
 	// Methods
-	public String getMessageError() {
+	public String getRegisterMessageError() {
 		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
-	}
-	
-	public static WebElement getBox(String boxname) {
-		return Constant.WEBDRIVER.findElement(By.id(boxname));
 	}
 
 	public void register(String email, String password, String confirmpassword, String pidnumber) {
@@ -32,6 +23,6 @@ public class RegisterPage {
 		getBox("password").sendKeys(password);
 		getBox("confirmPassword").sendKeys(confirmpassword);
 		getBox("pid").sendKeys(pidnumber);
-		getRegisterButton().click();
+		clickFormActionButton();
 	}
 }

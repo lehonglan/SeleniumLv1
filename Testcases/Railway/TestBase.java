@@ -2,6 +2,7 @@ package Railway;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Utilities.Utilities;
@@ -14,6 +15,7 @@ public class TestBase {
 	protected static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 	protected static Utilities utilities = new Utilities();
 	protected static LoginPage loginPage = new LoginPage();
+	protected static final SoftAssert softAssertion = new SoftAssert();
 //	protected static Constant.Text text = new Constant.Text();
 
 //	@BeforeSuite

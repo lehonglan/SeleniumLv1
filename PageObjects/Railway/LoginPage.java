@@ -1,24 +1,26 @@
 package Railway;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
 
-public class LoginPage {
+public class LoginPage extends GeneralPage{
 
 	// Elements
-	public WebElement getBtnLogin() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//input[@value='login']"));
-	}
-
-	public WebElement getBox(String boxname) {
-		return Constant.WEBDRIVER.findElement(By.id(boxname));
-	}
 
 	// Methods
+	public void inputEmail (String email) {
+		getBox("email").clear();
+		getBox("email").sendKeys(email);
+		clickFormActionButton();
+	}
+	
 	public String getLoginErrorMessage() {
 		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']")).getText();
+	}
+	
+	public void openForgotPasswordLink() {
+		Constant.WEBDRIVER.findElement(By.xpath("//a[contains(text(),'Forgot Password')]")).click();
 	}
 
 	public void login(String username, String password) {
@@ -26,7 +28,7 @@ public class LoginPage {
 		getBox("password").clear();
 		getBox("username").sendKeys(username);
 		getBox("password").sendKeys(password);
-		getBtnLogin().click();
+		clickFormActionButton();
 	}
 
 	public void login(String username, String password, int times) {

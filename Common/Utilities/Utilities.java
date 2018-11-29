@@ -17,7 +17,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 
 import Constant.Constant;
-import Constant.Constant.BackupAccount;
 import Constant.Constant.tabName;
 import Railway.HomePage;
 
@@ -60,7 +59,7 @@ public class Utilities {
 	public String generateMail(String domain) {
 //		String t = String.valueOf(System.currentTimeMillis());
 //		return String.format("username%s@logigear.com", t.substring(5,t.length()));		
-		return (BackupAccount.USERNAME + "+"
+		return (Constant.USERNAME_WITHOUT_DOMAIN + "+"
 				+ fake.name().name().toString().substring(0, 4).replaceAll(" ", "").toLowerCase()
 				+ fake.number().digits(3).toString() + domain);
 	}
@@ -72,7 +71,7 @@ public class Utilities {
 
 	public void connectToMail() {
 		try {
-			emailUtils = new EmailUtils(BackupAccount.USERNAME, BackupAccount.PASSWORD, "smtp.gmail.com",
+			emailUtils = new EmailUtils("lan.le.test.01@gmail.com", "Lehonglan8180", "smtp.gmail.com",
 					EmailUtils.EmailFolder.INBOX);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,7 +80,8 @@ public class Utilities {
 
 	public void navigateToURLFromMail() {
 		try {
-			Message email = emailUtils.getMessagesBySubject("Please confirm your account", true, 1)[0];
+//			Message email = emailUtils.getMessagesBySubject("Please confirm your account", true, 1)[0];
+			Message email = emailUtils.getLatestMessage();
 			String content = emailUtils.getMessageContent(email);
 			String link = extractUrls(content).get(0);
 
