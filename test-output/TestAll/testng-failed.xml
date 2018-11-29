@@ -9,9 +9,31 @@
           <include name="beforeClass"/>
           <include name="TC03"/>
           <include name="afterClass"/>
-          <include name="TC09"/>
         </methods>
       </class> <!-- Railway.LoginTest -->
     </classes>
   </test> <!-- Login(failed) -->
+  <test thread-count="5" name="Register(failed)">
+    <classes>
+      <class name="Railway.RegisterTest">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="TC11"/>
+        </methods>
+      </class> <!-- Railway.RegisterTest -->
+    </classes>
+  </test> <!-- Register(failed) -->
+  <test thread-count="5" name="ChangePassword(failed)">
+    <classes>
+      <class name="Railway.ChangePasswordTest">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="TC09"/>
+          <include name="afterClass"/>
+          <include name="TC12"/>
+        </methods>
+      </class> <!-- Railway.ChangePasswordTest -->
+    </classes>
+  </test> <!-- ChangePassword(failed) -->
 </suite> <!-- Failed suite [TestAll] -->
