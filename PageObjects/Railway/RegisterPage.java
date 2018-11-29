@@ -3,6 +3,8 @@ package Railway;
 import org.openqa.selenium.By;
 
 import Constant.Constant;
+import Constant.Constant.FormBox;
+import Constant.Constant.FormButton;
 
 public class RegisterPage extends GeneralPage{
 	// Locators
@@ -15,14 +17,14 @@ public class RegisterPage extends GeneralPage{
 	}
 
 	public void register(String email, String password, String confirmpassword, String pidnumber) {
-		getBox("email").clear();
-		getBox("password").clear();
-		getBox("confirmPassword").clear();
-		getBox("pid").clear();
-		getBox("email").sendKeys(email);
-		getBox("password").sendKeys(password);
-		getBox("confirmPassword").sendKeys(confirmpassword);
-		getBox("pid").sendKeys(pidnumber);
-		clickFormActionButton();
+		getBox(FormBox.EMAIL).clear();
+		getBox(FormBox.PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.PID).clear();
+		getBox(FormBox.EMAIL).sendKeys(email);
+		getBox(FormBox.PASSWORD).sendKeys(password);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpassword);
+		getBox(FormBox.PID).sendKeys(pidnumber);
+		clickFormActionButton(FormButton.REGISTER);
 	}
 }

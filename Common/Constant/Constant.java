@@ -7,15 +7,56 @@ public class Constant {
 	public static String USERNAME_WITHOUT_DOMAIN = "lan.le.test.01";
 	public static String USERNAME = "lan.le.test.01@gmail.com";
 	public static String USERNAME_BACKUP = "lan.le.test.01+1@gmail.com";
+	public static String USERNAME_BACKUP_2 = "lan.le.test.01+2@gmail.com";
 	public static String USERNAME_INACTIVE = "lan.le+99@logigear.com";
 	public static String PASSWORD = "12345678";
 	public static String NEW_PASSWORD = PASSWORD + "1";
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = "http://192.168.189.206:8888";
+	public static String RAILWAY_URL = "http://localhost:8888"; //http://192.168.189.206:8888
 	
-	public enum errorForField {
+	public enum FormButton {
+		BOOK_TICKET("Book ticket"),
+		REGISTER("Register"), 
+		LOGIN("login"), 
+		CHANGE_PASSWORD("Change Password"),
+		RESET_PASSWORD("Reset Password"),
+		SEND_INSTRUCTIONS("Send Instructions");
+
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private FormButton(String value) {
+			this.value = value;
+		}
+	}
+	
+	public enum ListType {
+		DEPART_DATE("Date"),
+		DEPART_FROM("DepartStation"),
+		ARRIVE_AT("ArriveStation"),
+		SEAT_TYPE("SeatType"),
+		TICKET_AMOUNT("TicketAmount");
+
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private ListType(String value) {
+			this.value = value;
+		}
+	}
+	
+	public enum FormBox {
+		USERNAME("username"),
+		EMAIL("email"),
 		PASSWORD("password"),
+		CURRENT_PASSWORD("currentPassword"),
 		NEW_PASSWORD("newPassword"),
 		CONFIRM_PASSWORD("confirmPassword"),
 		RESET_TOKEN("resetToken"),
@@ -27,15 +68,17 @@ public class Constant {
 			return value;
 		}
 
-		private errorForField(String value) {
+		private FormBox(String value) {
 			this.value = value;
 		}
 	}
 
 	public static class ChangePassword {
 		public static String SUCCESS_MESSAGE = "Your password has been updated";
+		public static String DIFFERENT_PASSWORD_ERROR_FORM_MESSAGE = "Could not reset password. Please correct the errors and try again.";
+		public static String DIFFERENT_PASSWORD_ERROR_BOX_MESSAGE = "The password confirmation did not match the new password.";
 		public static String INVALID_TOKEN_ERROR_FORM_MESSAGE = "The password reset token is incorrect or may be expired. Visit the forgot password page to generate a new one.";
-		public static String ERROR_RESET_TOKEN_MESSAGE = "The password reset token is invalid.";
+		public static String INVALID_TOKEN_ERROR_BOX_MESSAGE = "The password reset token is invalid.";
 	}
 
 	public static class Login {
@@ -50,7 +93,9 @@ public class Constant {
 	}
 
 	public enum pageTitle {
-		LOGIN("Login page"), CHANGEPASSWORD("Change password"), MYTICKET("Manage ticket");
+		LOGIN("Login page"), 
+		CHANGEPASSWORD("Change password"), 
+		MYTICKET("Manage ticket");
 
 		private String value;
 
@@ -64,21 +109,41 @@ public class Constant {
 	}
 
 	public static class Register {
-		// Input
-		public static String PASSWORD = "12345678";
-		public static String NEW_PASSWORD = PASSWORD + "1";
-		public static String PID = "0123456789";
-		// Expected
 		public static String SUCCESS_MESSAGE = "Thank you for registering your account";
 		public static String ERROR_FORM_MESSAGE = "There're errors in the form. Please correct the errors and try again.";
 		public static String ERROR_PASSWORD_MESSAGE = "Invalid password length.";
 		public static String ERROR_PID_MESSAGE = "Invalid ID length.";
+	}
+	
+	public static class BookTicket {
+		public static String SUCCESS_MESSAGE = "Ticket booked successfully!";
+	}
+	
+	public enum ticketColumn {
+		DEPART_STATION("1"), 
+		ARRIVE_STATION("2"), 
+		SEAT_TYPE("3"), 
+		DEPART_DATE("4"),
+		AMOUNT("7"); 
 
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private ticketColumn(String value) {
+			this.value = value;
+		}
 	}
 
 	public enum tabName {
-		LOGIN("Login"), LOGOUT("Log out"), BOOKTICKET("Book ticket"), MYTICKET("My ticket"),
-		CHANGEPASSWORD("Change password"), REGISTER("Register");
+		LOGIN("Login"), 
+		LOGOUT("Log out"), 
+		BOOKTICKET("Book ticket"), 
+		MYTICKET("My ticket"),
+		CHANGEPASSWORD("Change password"), 
+		REGISTER("Register");
 
 		private String value;
 

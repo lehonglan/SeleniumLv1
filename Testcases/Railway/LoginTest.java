@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 import Constant.Constant;
+import Constant.Constant.Login;
 import Constant.Constant.ReturnFailMessage;
 import Constant.Constant.pageTitle;
 import Constant.Constant.tabName;
@@ -16,7 +17,7 @@ public class LoginTest extends TestBase {
 	public void TC01() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-		assertEquals(generalPage.getWelcomeMessage(), Constant.Login.welcomeMessage(Constant.USERNAME));
+		assertEquals(generalPage.getWelcomeMessage(), Login.welcomeMessage(Constant.USERNAME));
 		homePage.logOut();
 	}
 
@@ -24,7 +25,7 @@ public class LoginTest extends TestBase {
 	public void TC02() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login("", Constant.PASSWORD);
-		assertEquals(loginPage.getLoginErrorMessage(), Constant.Login.ERROR_MESSAGE);
+		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -32,7 +33,7 @@ public class LoginTest extends TestBase {
 	public void TC03() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login(Constant.USERNAME, "INVALIDPASSWORD");
-		assertEquals(loginPage.getLoginErrorMessage(), Constant.Login.ERROR_MESSAGE);
+		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -47,7 +48,7 @@ public class LoginTest extends TestBase {
 	public void TC05() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login(Constant.USERNAME, "INVALIDPASSWORD", 4);
-		assertEquals(loginPage.getLoginErrorMessage(), Constant.Login.ERROR_4TIMES_MESSAGE);
+		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_4TIMES_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -77,7 +78,7 @@ public class LoginTest extends TestBase {
 	public void TC08() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login(Constant.USERNAME_INACTIVE, Constant.PASSWORD);
-		assertEquals(loginPage.getLoginErrorMessage(), Constant.USERNAME_INACTIVE);
+		assertEquals(loginPage.getLoginErrorMessage(), Login.INACTIVE_ACCOUNT_MESSAGE);
 		homePage.logOut();
 	}
 }

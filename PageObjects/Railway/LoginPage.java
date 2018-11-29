@@ -3,6 +3,8 @@ package Railway;
 import org.openqa.selenium.By;
 
 import Constant.Constant;
+import Constant.Constant.FormBox;
+import Constant.Constant.FormButton;
 
 public class LoginPage extends GeneralPage{
 
@@ -10,9 +12,8 @@ public class LoginPage extends GeneralPage{
 
 	// Methods
 	public void inputEmail (String email) {
-		getBox("email").clear();
-		getBox("email").sendKeys(email);
-		clickFormActionButton();
+		getBox(FormBox.EMAIL).clear();
+		getBox(FormBox.EMAIL).sendKeys(email);
 	}
 	
 	public String getLoginErrorMessage() {
@@ -24,11 +25,11 @@ public class LoginPage extends GeneralPage{
 	}
 
 	public void login(String username, String password) {
-		getBox("username").clear();
-		getBox("password").clear();
-		getBox("username").sendKeys(username);
-		getBox("password").sendKeys(password);
-		clickFormActionButton();
+		getBox(FormBox.USERNAME).clear();
+		getBox(FormBox.PASSWORD).clear();
+		getBox(FormBox.USERNAME).sendKeys(username);
+		getBox(FormBox.PASSWORD).sendKeys(password);
+		clickFormActionButton(FormButton.LOGIN);
 	}
 
 	public void login(String username, String password, int times) {

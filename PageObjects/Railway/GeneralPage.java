@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
-import Constant.Constant.errorForField;
+import Constant.Constant.FormBox;
+import Constant.Constant.FormButton;
 
 public class GeneralPage {
 
 	// Elements
-	public WebElement getBox(String boxname) {
-		return Constant.WEBDRIVER.findElement(By.id(boxname));
+	public WebElement getBox(FormBox boxname) {
+		return Constant.WEBDRIVER.findElement(By.id(boxname.getValue()));
 	}
 	
 	public WebElement getLblWelcomeMessage() {
@@ -22,7 +23,7 @@ public class GeneralPage {
 	}
 
 	// Methods
-	public String getMessageErrorNextTheInputField(errorForField boxname) {
+	public String getMessageErrorNextTheBox(FormBox boxname) {
 		return Constant.WEBDRIVER
 				.findElement(By.xpath(String.format("//label[@class='validation-error' and @for='%s']", boxname.getValue()))).getText();
 	}
@@ -35,7 +36,7 @@ public class GeneralPage {
 		return getPageTitle().getText();
 	}
 	
-	public void clickFormActionButton() {
-		Constant.WEBDRIVER.findElement(By.xpath("//p[@class= 'form-actions']")).click();;
+	public void clickFormActionButton(FormButton button) {
+		Constant.WEBDRIVER.findElement(By.xpath(String.format("//input[@type='submit' and @value='%s']",button.getValue()))).click();
 	}
 }

@@ -5,12 +5,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
+import Constant.Constant.FormBox;
+import Constant.Constant.FormButton;
 
 public class ChangePasswordPage extends GeneralPage{
-	
-	public WebElement getBox(String boxname) {
-		return Constant.WEBDRIVER.findElement(By.id(boxname));
-	}
 	
 	public String getMessageSuccess() {
 		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message success']")).getText();
@@ -30,22 +28,23 @@ public class ChangePasswordPage extends GeneralPage{
 	}
 	
 	public void changePassword(String currentpass, String newpass, String confirmpass) {
-		getBox("currentPassword").clear();
-		getBox("newPassword").clear();
-		getBox("confirmPassword").clear();
-		getBox("currentPassword").sendKeys(currentpass);
-		getBox("newPassword").sendKeys(newpass);
-		getBox("confirmPassword").sendKeys(confirmpass);
-		clickFormActionButton();
+		getBox(FormBox.CURRENT_PASSWORD).clear();
+		getBox(FormBox.NEW_PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.CURRENT_PASSWORD).sendKeys(currentpass);
+		getBox(FormBox.NEW_PASSWORD).sendKeys(newpass);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);
+		clickFormActionButton(FormButton.CHANGE_PASSWORD);
 	}
 	
-	public void resetPassword(String newpass, String confirmpass, String resettoken) {
-		getBox("newPassword").clear();
-		getBox("confirmPassword").clear();
-		getBox("resetToken").clear();
-		getBox("newPassword").sendKeys(newpass);
-		getBox("confirmPassword").sendKeys(confirmpass);
-		getBox("resetToken").sendKeys(resettoken);
-		clickFormActionButton();
+	public void inputNewPassword(String newpass, String confirmpass) {
+		getBox(FormBox.NEW_PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.NEW_PASSWORD).sendKeys(newpass);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);;
+	}
+	
+	public void clearToken() {
+		getBox(FormBox.RESET_TOKEN).clear();
 	}
 }

@@ -2,11 +2,13 @@ package Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.mail.Message;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,12 +19,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 
 import Constant.Constant;
+import Constant.Constant.FormButton;
+import Constant.Constant.ListType;
 import Constant.Constant.tabName;
+import Railway.ChangePasswordPage;
+import Railway.GeneralPage;
 import Railway.HomePage;
+import Railway.LoginPage;
 
 public class Utilities {
 
 	private static HomePage homePage = new HomePage();
+	private static LoginPage loginPage = new LoginPage();
+	private static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
+	private static GeneralPage generalPage = new GeneralPage();
 	private static Faker fake = new Faker();
 	private static EmailUtils emailUtils;
 
@@ -61,7 +71,17 @@ public class Utilities {
 //		return String.format("username%s@logigear.com", t.substring(5,t.length()));		
 		return (Constant.USERNAME_WITHOUT_DOMAIN + "+"
 				+ fake.name().name().toString().substring(0, 4).replaceAll(" ", "").toLowerCase()
-				+ fake.number().digits(3).toString() + domain);
+				+ fake.number().digits(4).toString() + domain);
+	}
+	
+	public void resetPasswordToDefault(String username) {
+		homePage.openTab(tabName.LOGIN);
+		loginPage.openForgotPasswordLink();
+		loginPage.inputEmail(username);
+		changePasswordPage.clickFormActionButton(FormButton.SEND_INSTRUCTIONS);
+		navigateToURLFromMail("Please reset your password");
+		changePasswordPage.inputNewPassword(Constant.PASSWORD, Constant.PASSWORD);
+		generalPage.clickFormActionButton(FormButton.RESET_PASSWORD);
 	}
 
 	public void waitForElement(WebElement element) {
@@ -78,10 +98,10 @@ public class Utilities {
 		}
 	}
 
-	public void navigateToURLFromMail() {
+	public void navigateToURLFromMail(String mailsubject) {
 		try {
-//			Message email = emailUtils.getMessagesBySubject("Please confirm your account", true, 1)[0];
-			Message email = emailUtils.getLatestMessage();
+			Message email = emailUtils.getMessagesBySubject(mailsubject, true, 1)[0];
+//			Message email = emailUtils.getLatestMessage();
 			String content = emailUtils.getMessageContent(email);
 			String link = extractUrls(content).get(0);
 
@@ -105,6 +125,13 @@ public class Utilities {
 		} catch (NoSuchElementException e) {
 			return false;
 		}
+	}
+	
+	public void selectRandomItemFromList (ListType listing) {
+		List<WebElement> list = Constant.WEBDRIVER.findElements(By.xpath(String.format("//select[@name='%s']/option",listing)));
+		Random r = new Random();
+		int randomValue = r.nextInt(list.size()); //Getting a random value that is between 0 and (list's size)-1
+		list.get(randomValue).click();
 	}
 
 	/**

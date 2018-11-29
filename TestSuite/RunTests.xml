@@ -13,4 +13,11 @@
        <class name="Railway.RegisterTest"/>
      </classes>
    </test>
+   
+     <test name="ChangePassword">
+     <classes>
+       <class name="Railway.ChangePasswordTest"/>
+     </classes>
+   </test>
+   
 </suite>

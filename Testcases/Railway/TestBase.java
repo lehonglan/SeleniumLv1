@@ -15,7 +15,8 @@ public class TestBase {
 	protected static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 	protected static Utilities utilities = new Utilities();
 	protected static LoginPage loginPage = new LoginPage();
-	protected static final SoftAssert softAssertion = new SoftAssert();
+	protected static BookTicketPage bookTicketPage = new BookTicketPage();
+	protected static SoftAssert softAssertion = new SoftAssert();
 //	protected static Constant.Text text = new Constant.Text();
 
 //	@BeforeSuite
