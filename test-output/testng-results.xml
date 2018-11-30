@@ -2,27 +2,27 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-11-29T20:34:46Z" name="Default suite" finished-at="2018-11-29T20:34:53Z" duration-ms="7402">
+  <suite started-at="2018-11-30T01:44:58Z" name="Default suite" finished-at="2018-11-30T01:45:13Z" duration-ms="15609">
     <groups>
     </groups>
-    <test started-at="2018-11-29T20:34:46Z" name="Default test" finished-at="2018-11-29T20:34:53Z" duration-ms="7402">
+    <test started-at="2018-11-30T01:44:58Z" name="Default test" finished-at="2018-11-30T01:45:13Z" duration-ms="15609">
       <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@5b7d5eca]" started-at="2018-11-29T20:34:46Z" name="beforeClass" finished-at="2018-11-29T20:34:52Z" duration-ms="6301" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@4f7da3a2]" started-at="2018-11-30T01:44:58Z" name="beforeClass" finished-at="2018-11-30T01:45:04Z" duration-ms="6720" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="TC14()[pri:0, instance:Railway.BookTicketTest@5b7d5eca]" started-at="2018-11-29T20:34:52Z" name="TC14" description="Errors display if password and confirm password don&#039;t match when resetting password" finished-at="2018-11-29T20:34:53Z" duration-ms="490" status="FAIL">
+        <test-method signature="TC14()[pri:0, instance:Railway.BookTicketTest@4f7da3a2]" started-at="2018-11-30T01:45:04Z" name="TC14" description="Errors display if password and confirm password don&#039;t match when resetting password" finished-at="2018-11-30T01:45:13Z" duration-ms="8238" status="FAIL">
           <exception class="org.openqa.selenium.support.ui.UnexpectedTagNameException">
             <message>
               <![CDATA[Element should have been "select" but was "option"
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-FR5NQIN', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: driver.version: unknown]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been "select" but was "option"
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-FR5NQIN', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: driver.version: unknown
 at org.openqa.selenium.support.ui.Select.<init>(Select.java:47)
 at Railway.BookTicketPage.selectFirstItemInList(BookTicketPage.java:23)
@@ -58,7 +58,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC14 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.BookTicketTest@5b7d5eca]" started-at="2018-11-29T20:34:53Z" name="afterClass" finished-at="2018-11-29T20:34:53Z" duration-ms="603" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.BookTicketTest@4f7da3a2]" started-at="2018-11-30T01:45:13Z" name="afterClass" finished-at="2018-11-30T01:45:13Z" duration-ms="631" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

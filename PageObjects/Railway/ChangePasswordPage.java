@@ -18,15 +18,6 @@ public class ChangePasswordPage extends GeneralPage{
 		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
 	}
 	
-	public boolean isFormTitleDisplay() {
-		try {
-			WebElement x = Constant.WEBDRIVER.findElement(By.xpath("//legend[text()='Password Change Form']"));
-			return x.isDisplayed();
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-	}
-	
 	public void changePassword(String currentpass, String newpass, String confirmpass) {
 		getBox(FormBox.CURRENT_PASSWORD).clear();
 		getBox(FormBox.NEW_PASSWORD).clear();
