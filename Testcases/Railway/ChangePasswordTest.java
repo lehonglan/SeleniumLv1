@@ -15,9 +15,7 @@ public class ChangePasswordTest extends TestBase {
 
 	@BeforeClass
 	public void beforeClass() {
-		utilities.connectToMail();
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
-		utilities.resetPasswordToDefault(Constant.USERNAME_BACKUP);
 		homePage.openTab(tabName.LOGIN);
 	}
 
@@ -34,6 +32,9 @@ public class ChangePasswordTest extends TestBase {
 		changePasswordPage.changePassword(Constant.PASSWORD, Constant.NEW_PASSWORD, Constant.NEW_PASSWORD);
 		softAssertion.assertEquals(changePasswordPage.getMessageSuccess(), ChangePassword.SUCCESS_MESSAGE);
 		homePage.logOut();
+		
+		loginPage.resetPasswordToDefault(Constant.USERNAME_BACKUP);
+		
 		softAssertion.assertAll();
 	}
 
@@ -48,7 +49,9 @@ public class ChangePasswordTest extends TestBase {
 				ResetPassword.INVALID_TOKEN_ERROR_FORM_MESSAGE);
 		softAssertion.assertEquals(generalPage.getMessageErrorNextTheBox(Constant.FormBox.RESET_TOKEN),
 				ResetPassword.INVALID_TOKEN_ERROR_BOX_MESSAGE);
-
+		
+		loginPage.resetPasswordToDefault(Constant.USERNAME_BACKUP);
+		
 		softAssertion.assertAll();
 	}
 
@@ -64,6 +67,8 @@ public class ChangePasswordTest extends TestBase {
 		softAssertion.assertEquals(generalPage.getMessageErrorNextTheBox(FormBox.CONFIRM_PASSWORD),
 				ResetPassword.DIFFERENT_PASSWORD_ERROR_BOX_MESSAGE);
 
+		loginPage.resetPasswordToDefault(Constant.USERNAME_BACKUP);
+		
 		softAssertion.assertAll();
 	}
 }

@@ -17,7 +17,7 @@ public class RegisterTest extends TestBase {
 	@Test(description = "User can create new account")
 	public void TC07() {
 		homePage.openTab(tabName.REGISTER);
-		registerPage.register(utilities.generateMail("@ab.xy"), Constant.PASSWORD, Constant.PASSWORD,
+		registerPage.register(utilities.generateMail(), Constant.PASSWORD, Constant.PASSWORD,
 				Constant.PASSWORD);
 		assertEquals(generalPage.getCurrentPageTitle(), Register.SUCCESS_MESSAGE);
 		homePage.logOut();
@@ -26,7 +26,7 @@ public class RegisterTest extends TestBase {
 	@Test(description = "User can't create account with 'Confirm password' is not the same with 'Password'")
 	public void TC10() {
 		homePage.openTab(tabName.REGISTER);
-		registerPage.register(utilities.generateMail("@ab.xy"), Constant.PASSWORD,
+		registerPage.register(utilities.generateMail(), Constant.PASSWORD,
 				Constant.NEW_PASSWORD, Constant.PASSWORD);
 		assertEquals(registerPage.getRegisterMessageError(), Register.ERROR_FORM_MESSAGE);
 		homePage.logOut();
@@ -35,7 +35,7 @@ public class RegisterTest extends TestBase {
 	@Test(description = "User can't create account while password and PID fields are empty")
 	public void TC11() {
 		homePage.openTab(tabName.REGISTER);
-		registerPage.register(utilities.generateMail("@ab.xy"), "", "", "");
+		registerPage.register(utilities.generateMail(), Constant.EMPTY, Constant.EMPTY, Constant.EMPTY);
 		softAssertion.assertEquals(registerPage.getRegisterMessageError(), Register.ERROR_FORM_MESSAGE);
 		softAssertion.assertEquals(
 				registerPage.getMessageErrorNextTheBox(FormBox.PASSWORD),

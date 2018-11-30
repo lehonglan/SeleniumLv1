@@ -17,25 +17,14 @@ public class TestBase {
 	protected static LoginPage loginPage = new LoginPage();
 	protected static BookTicketPage bookTicketPage = new BookTicketPage();
 	protected static SoftAssert softAssertion = new SoftAssert();
-//	protected static Constant.Text text = new Constant.Text();
-
-//	@BeforeSuite
-//    public void suiteStart() {
-//    }
-//	
-//	@AfterSuite
-//	public void suiteEnd() {
-//    }
 
 	@BeforeClass
 	public void beforeClass() {
-		utilities.connectToMail();
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
 	}
 
 	@AfterClass
 	public void afterClass() {
 		Utilities.closeBrowser();
-
 	}
 }

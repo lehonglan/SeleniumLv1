@@ -48,7 +48,20 @@ public class LoginPage extends GeneralPage{
 			login(username, password);
 		}
 	}
-
+	/*
+	 * *
+	 * *
+	 */
+	public void resetPasswordToDefault(String username) {
+		sendMailResetPassword(username);
+		utilities.openValidateLink("Please reset your password");
+		getBox(FormBox.NEW_PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.NEW_PASSWORD).sendKeys(Constant.PASSWORD);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(Constant.PASSWORD);
+		clickFormActionButton(FormButton.RESET_PASSWORD);
+	}
+	
 	public void resetPassword(String newpass, String confirmpass) {
 		getBox(FormBox.NEW_PASSWORD).clear();
 		getBox(FormBox.CONFIRM_PASSWORD).clear();

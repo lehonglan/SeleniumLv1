@@ -16,24 +16,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.github.javafaker.Faker;
-
 import Constant.Constant;
-import Constant.Constant.FormButton;
 import Constant.Constant.ListType;
 import Constant.Constant.tabName;
-import Railway.ChangePasswordPage;
-import Railway.GeneralPage;
 import Railway.HomePage;
-import Railway.LoginPage;
 
 public class Utilities {
 
 	private static HomePage homePage = new HomePage();
-	private static LoginPage loginPage = new LoginPage();
-	private static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-	private static GeneralPage generalPage = new GeneralPage();
-	private static Faker fake = new Faker();
 	private static EmailUtils emailUtils;
 
 	public void openChrome() {
@@ -66,22 +56,9 @@ public class Utilities {
 		}
 	}
 
-	public String generateMail(String domain) {
-//		String t = String.valueOf(System.currentTimeMillis());
-//		return String.format("username%s@logigear.com", t.substring(5,t.length()));		
-		return (Constant.USERNAME_WITHOUT_DOMAIN + "+"
-				+ fake.name().name().toString().substring(0, 4).replaceAll(" ", "").toLowerCase()
-				+ fake.number().digits(4).toString() + domain);
-	}
-	
-	public void resetPasswordToDefault(String username) {
-		homePage.openTab(tabName.LOGIN);
-		loginPage.openForgotPasswordLink();
-		loginPage.inputEmail(username);
-		changePasswordPage.clickFormActionButton(FormButton.SEND_INSTRUCTIONS);
-		openValidateLink("Please reset your password");
-		loginPage.resetPassword(Constant.PASSWORD, Constant.PASSWORD);
-		generalPage.clickFormActionButton(FormButton.RESET_PASSWORD);
+	public String generateMail() {
+		String t = String.valueOf(System.currentTimeMillis());	
+		return (Constant.USERNAME_WITHOUT_DOMAIN + "+" + t.substring(5, t.length())) + "@gmail.com";
 	}
 
 	public void waitForElement(WebElement element) {
@@ -99,6 +76,7 @@ public class Utilities {
 	}
 
 	public void openValidateLink(String mailsubject) {
+		connectToMail();
 		try {
 			Message email = emailUtils.getMessagesBySubject(mailsubject, true, 1)[0];
 //			Message email = emailUtils.getLatestMessage();
