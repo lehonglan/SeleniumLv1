@@ -79,8 +79,8 @@ public class Utilities {
 		loginPage.openForgotPasswordLink();
 		loginPage.inputEmail(username);
 		changePasswordPage.clickFormActionButton(FormButton.SEND_INSTRUCTIONS);
-		navigateToURLFromMail("Please reset your password");
-		changePasswordPage.inputNewPassword(Constant.PASSWORD, Constant.PASSWORD);
+		openValidateLink("Please reset your password");
+		loginPage.resetPassword(Constant.PASSWORD, Constant.PASSWORD);
 		generalPage.clickFormActionButton(FormButton.RESET_PASSWORD);
 	}
 
@@ -98,7 +98,7 @@ public class Utilities {
 		}
 	}
 
-	public void navigateToURLFromMail(String mailsubject) {
+	public void openValidateLink(String mailsubject) {
 		try {
 			Message email = emailUtils.getMessagesBySubject(mailsubject, true, 1)[0];
 //			Message email = emailUtils.getLatestMessage();

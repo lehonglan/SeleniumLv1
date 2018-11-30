@@ -6,9 +6,17 @@ import org.openqa.selenium.WebElement;
 import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
+import Utilities.Utilities;
 
 public class GeneralPage {
-
+	
+	protected static HomePage homePage = new HomePage();
+	protected static RegisterPage registerPage = new RegisterPage();
+	protected static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
+	protected static Utilities utilities = new Utilities();
+	protected static LoginPage loginPage = new LoginPage();
+	protected static BookTicketPage bookTicketPage = new BookTicketPage();
+	
 	// Elements
 	public WebElement getBox(FormBox boxname) {
 		return Constant.WEBDRIVER.findElement(By.id(boxname.getValue()));

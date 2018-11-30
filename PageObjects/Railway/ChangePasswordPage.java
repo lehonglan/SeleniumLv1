@@ -36,15 +36,5 @@ public class ChangePasswordPage extends GeneralPage{
 		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);
 		clickFormActionButton(FormButton.CHANGE_PASSWORD);
 	}
-	
-	public void inputNewPassword(String newpass, String confirmpass) {
-		getBox(FormBox.NEW_PASSWORD).clear();
-		getBox(FormBox.CONFIRM_PASSWORD).clear();
-		getBox(FormBox.NEW_PASSWORD).sendKeys(newpass);
-		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);;
-	}
-	
-	public void clearToken() {
-		getBox(FormBox.RESET_TOKEN).clear();
-	}
+
 }

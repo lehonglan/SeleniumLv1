@@ -1,10 +1,13 @@
 package Railway;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
+import Constant.Constant.tabName;
 
 public class LoginPage extends GeneralPage{
 
@@ -18,6 +21,14 @@ public class LoginPage extends GeneralPage{
 	
 	public String getLoginErrorMessage() {
 		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']")).getText();
+	}
+	
+	public String getResetPasswordSuccessMessage() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message success']")).getText();
+	}
+	
+	public String getResetPasswordErrorMessage() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
 	}
 	
 	public void openForgotPasswordLink() {
@@ -38,4 +49,37 @@ public class LoginPage extends GeneralPage{
 		}
 	}
 
+	public void resetPassword(String newpass, String confirmpass) {
+		getBox(FormBox.NEW_PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.NEW_PASSWORD).sendKeys(newpass);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);
+		clickFormActionButton(FormButton.RESET_PASSWORD);		
+	}
+	
+	public void resetPassword(String newpass, String confirmpass, String resettoken) {
+		getBox(FormBox.NEW_PASSWORD).clear();
+		getBox(FormBox.CONFIRM_PASSWORD).clear();
+		getBox(FormBox.RESET_TOKEN).clear();
+		getBox(FormBox.NEW_PASSWORD).sendKeys(newpass);
+		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(confirmpass);
+		getBox(FormBox.RESET_TOKEN).sendKeys(resettoken);
+		clickFormActionButton(FormButton.RESET_PASSWORD);		
+	}
+	
+	public void sendMailResetPassword(String email) {
+		homePage.openTab(tabName.LOGIN);
+		loginPage.openForgotPasswordLink();
+		loginPage.inputEmail(email);
+		changePasswordPage.clickFormActionButton(FormButton.SEND_INSTRUCTIONS);
+	}
+	
+	public boolean isFormTitleDisplay() {
+		try {
+			WebElement x = Constant.WEBDRIVER.findElement(By.xpath("//legend[text()='Password Change Form']"));
+			return x.isDisplayed();
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
 }

@@ -46,13 +46,4 @@ public class RegisterTest extends TestBase {
 		softAssertion.assertAll();
 	}
 	
-
-	@Test(description = "test")
-	public void TC000() {
-		homePage.openTab(tabName.REGISTER);
-		registerPage.register(utilities.generateMail("@gmail.com"), Constant.PASSWORD,
-				Constant.PASSWORD, Constant.PASSWORD);
-		utilities.navigateToURLFromMail("Please confirm your account");
-		homePage.logOut();
-	}
 }

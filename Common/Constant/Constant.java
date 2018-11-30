@@ -11,9 +11,10 @@ public class Constant {
 	public static String USERNAME_INACTIVE = "lan.le+99@logigear.com";
 	public static String PASSWORD = "12345678";
 	public static String NEW_PASSWORD = PASSWORD + "1";
+	public static String EMPTY = "";
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = "http://localhost:8888"; //http://192.168.189.206:8888
+	public static String RAILWAY_URL = /*"http://localhost:8888";*/ "http://192.168.189.206:8888";
 	
 	public enum FormButton {
 		BOOK_TICKET("Book ticket"),
@@ -75,6 +76,9 @@ public class Constant {
 
 	public static class ChangePassword {
 		public static String SUCCESS_MESSAGE = "Your password has been updated";
+	}
+	
+	public static class ResetPassword {
 		public static String DIFFERENT_PASSWORD_ERROR_FORM_MESSAGE = "Could not reset password. Please correct the errors and try again.";
 		public static String DIFFERENT_PASSWORD_ERROR_BOX_MESSAGE = "The password confirmation did not match the new password.";
 		public static String INVALID_TOKEN_ERROR_FORM_MESSAGE = "The password reset token is incorrect or may be expired. Visit the forgot password page to generate a new one.";
@@ -162,8 +166,5 @@ public class Constant {
 			return (element + " is not shown as expected");
 		}
 
-//		public static String CompareText (String actual, String expected) {
-//			return ("\nExpected is: '" + expected + "' displays" + "\nActual is: '" + actual + "' displays" + "\n");
-//		}
 	}
 }
