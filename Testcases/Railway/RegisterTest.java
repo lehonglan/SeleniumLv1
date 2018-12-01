@@ -19,7 +19,7 @@ public class RegisterTest extends TestBase {
 		homePage.openTab(tabName.REGISTER);
 		registerPage.register(utilities.generateMail(), Constant.PASSWORD, Constant.PASSWORD,
 				Constant.PASSWORD);
-		assertEquals(generalPage.getCurrentPageTitle(), Register.SUCCESS_MESSAGE);
+		assertEquals(generalPage.getCurrentHeader(), Register.SUCCESS_MESSAGE);
 		homePage.logOut();
 	}
 

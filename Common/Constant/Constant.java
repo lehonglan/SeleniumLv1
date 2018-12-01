@@ -14,7 +14,7 @@ public class Constant {
 	public static String EMPTY = "";
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = /*"http://localhost:8888";*/ "http://192.168.189.206:8888";
+	public static String RAILWAY_URL = "http://localhost:8888"; /*"http://192.168.189.206:8888";*/
 	
 	public enum FormButton {
 		BOOK_TICKET("Book ticket"),

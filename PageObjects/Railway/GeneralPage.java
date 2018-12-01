@@ -16,6 +16,7 @@ public class GeneralPage {
 	protected static Utilities utilities = new Utilities();
 	protected static LoginPage loginPage = new LoginPage();
 	protected static BookTicketPage bookTicketPage = new BookTicketPage();
+	protected static GeneralPage generalPage = new GeneralPage();
 	
 	// Elements
 	public WebElement getBox(FormBox boxname) {
@@ -40,7 +41,7 @@ public class GeneralPage {
 		return getLblWelcomeMessage().getText();
 	}
 
-	public String getCurrentPageTitle() {
+	public String getCurrentHeader() {
 		return getPageTitle().getText();
 	}
 	

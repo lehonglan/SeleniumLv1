@@ -40,7 +40,7 @@ public class LoginTest extends TestBase {
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
 		homePage.openTab(tabName.BOOKTICKET);
-		assertEquals(generalPage.getCurrentPageTitle(), pageTitle.LOGIN.getValue());
+		assertEquals(generalPage.getCurrentHeader(), pageTitle.LOGIN.getValue());
 		homePage.logOut();
 	}
 
@@ -65,10 +65,10 @@ public class LoginTest extends TestBase {
 				ReturnFailMessage.tabIsNotShown(tabName.CHANGEPASSWORD));
 
 		homePage.openTab(tabName.MYTICKET);
-		softAssertion.assertEquals(generalPage.getCurrentPageTitle(), pageTitle.MYTICKET.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageTitle.MYTICKET.getValue());
 
 		homePage.openTab(tabName.CHANGEPASSWORD);
-		softAssertion.assertEquals(generalPage.getCurrentPageTitle(), pageTitle.CHANGEPASSWORD.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageTitle.CHANGEPASSWORD.getValue());
 
 		homePage.logOut();
 		softAssertion.assertAll();

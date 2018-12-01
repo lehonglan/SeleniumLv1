@@ -23,8 +23,8 @@ public class TestBase {
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
 	}
 
-	@AfterClass
-	public void afterClass() {
-		Utilities.closeBrowser();
-	}
+//	@AfterClass
+//	public void afterClass() {
+//		Utilities.closeBrowser();
+//	}
 }

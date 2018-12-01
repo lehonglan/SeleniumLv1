@@ -1,15 +1,20 @@
 package Constant;
 
-public class infoTicket {
+public class InfoTicket {
 
 	private String departDate;
 	private String departFrom;
 	private String arriveAt;
 	private String seatType;
-	private String amount;
+	private int amount;
 
-	public infoTicket() {
-
+	public InfoTicket(String departDate, String departFrom, String arriveAt, String seatType, int amount) 
+	{
+		this.departDate = departDate;
+		this.departFrom = departFrom;
+		this.arriveAt = arriveAt;
+		this.seatType = seatType;
+		this.amount = amount;
 	}
 
 	public String getDepartDate() {
@@ -44,11 +49,11 @@ public class infoTicket {
 		this.seatType = seatType;
 	}
 
-	public String getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 
