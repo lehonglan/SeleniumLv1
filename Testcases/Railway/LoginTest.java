@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import Constant.Constant;
 import Constant.Constant.Login;
 import Constant.Constant.ReturnFailMessage;
-import Constant.Constant.pageTitle;
+import Constant.Constant.pageHeader;
 import Constant.Constant.tabName;
 import Utilities.Utilities;
 
@@ -40,7 +40,7 @@ public class LoginTest extends TestBase {
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
 		homePage.openTab(tabName.BOOKTICKET);
-		assertEquals(generalPage.getCurrentHeader(), pageTitle.LOGIN.getValue());
+		assertEquals(generalPage.getCurrentHeader(), pageHeader.LOGIN.getValue());
 		homePage.logOut();
 	}
 
@@ -65,10 +65,10 @@ public class LoginTest extends TestBase {
 				ReturnFailMessage.tabIsNotShown(tabName.CHANGEPASSWORD));
 
 		homePage.openTab(tabName.MYTICKET);
-		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageTitle.MYTICKET.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageHeader.MYTICKET.getValue());
 
 		homePage.openTab(tabName.CHANGEPASSWORD);
-		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageTitle.CHANGEPASSWORD.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageHeader.CHANGEPASSWORD.getValue());
 
 		homePage.logOut();
 		softAssertion.assertAll();

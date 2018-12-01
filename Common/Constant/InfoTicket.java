@@ -16,6 +16,7 @@ public class InfoTicket {
 		this.seatType = seatType;
 		this.amount = amount;
 	}
+	
 
 	public String getDepartDate() {
 		return departDate;

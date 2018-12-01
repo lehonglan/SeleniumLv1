@@ -1,5 +1,8 @@
 package Utilities;
 
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,6 +12,7 @@ import java.util.regex.Pattern;
 import javax.mail.Message;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -126,6 +130,17 @@ public class Utilities {
 		}
 
 		return containedUrls;
+	}
+	
+	public void confirmPromt() {
+	    try {
+	        Constant.WEBDRIVER.switchTo().alert().accept();
+	    } catch (NoAlertPresentException e) {
+	    }
+	}
+	
+	public Writer convertUTF8 (Writer text) {
+		return text = new BufferedWriter(new OutputStreamWriter(System.out));
 	}
 
 }

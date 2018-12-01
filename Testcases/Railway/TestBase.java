@@ -1,6 +1,5 @@
 package Railway;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
@@ -17,6 +16,7 @@ public class TestBase {
 	protected static LoginPage loginPage = new LoginPage();
 	protected static BookTicketPage bookTicketPage = new BookTicketPage();
 	protected static SoftAssert softAssertion = new SoftAssert();
+	protected static TrainTimeTablePage trainTimeTablePage = new TrainTimeTablePage();
 
 	@BeforeClass
 	public void beforeClass() {

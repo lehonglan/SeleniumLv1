@@ -96,10 +96,11 @@ public class Constant {
 		}
 	}
 
-	public enum pageTitle {
+	public enum pageHeader{
 		LOGIN("Login page"), 
 		CHANGEPASSWORD("Change password"), 
-		MYTICKET("Manage ticket");
+		MYTICKET("Manage ticket"),
+		BOOKTICKET("Book ticket");
 
 		private String value;
 
@@ -107,7 +108,7 @@ public class Constant {
 			return value;
 		}
 
-		private pageTitle(String value) {
+		private pageHeader(String value) {
 			this.value = value;
 		}
 	}
@@ -123,7 +124,7 @@ public class Constant {
 		public static String SUCCESS_MESSAGE = "Ticket booked successfully!";
 	}
 	
-	public enum ticketColumn {
+	public enum myTicketColumn {
 		DEPART_STATION("1"), 
 		ARRIVE_STATION("2"), 
 		SEAT_TYPE("3"), 
@@ -136,7 +137,22 @@ public class Constant {
 			return value;
 		}
 
-		private ticketColumn(String value) {
+		private myTicketColumn(String value) {
+			this.value = value;
+		}
+	}
+	
+	public enum TimeTableLink {
+		CHECK_PRICE("check price"),
+		BOOK_TICKET("book ticket");
+
+		private String value;
+
+		public String getValue() {
+			return value;
+		}
+
+		private TimeTableLink(String value) {
 			this.value = value;
 		}
 	}
@@ -147,7 +163,8 @@ public class Constant {
 		BOOKTICKET("Book ticket"), 
 		MYTICKET("My ticket"),
 		CHANGEPASSWORD("Change password"), 
-		REGISTER("Register");
+		REGISTER("Register"),
+		TIMETABLE("Timetable");
 
 		private String value;
 
