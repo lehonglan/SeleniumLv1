@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-12-01T19:25:31Z" name="Default suite" finished-at="2018-12-01T19:25:35Z" duration-ms="4006">
+  <suite started-at="2018-12-03T04:23:40Z" name="Default suite" finished-at="2018-12-03T04:23:48Z" duration-ms="8225">
     <groups>
     </groups>
-    <test started-at="2018-12-01T19:25:31Z" name="Default test" finished-at="2018-12-01T19:25:35Z" duration-ms="4006">
+    <test started-at="2018-12-03T04:23:40Z" name="Default test" finished-at="2018-12-03T04:23:48Z" duration-ms="8225">
       <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@306cf3ea]" started-at="2018-12-01T19:25:31Z" name="beforeClass" finished-at="2018-12-01T19:25:34Z" duration-ms="3528" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@a3d8174]" started-at="2018-12-03T04:23:40Z" name="beforeClass" finished-at="2018-12-03T04:23:44Z" duration-ms="4239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@306cf3ea]" started-at="2018-12-01T19:25:34Z" name="TC15" description="User can open &#039;Book ticket&#039; page by clicking on &#039;Book ticket&#039; link in &#039;Train timetable&#039; page" finished-at="2018-12-01T19:25:35Z" duration-ms="463" status="FAIL">
+        <test-method signature="TC14()[pri:0, instance:Railway.BookTicketTest@a3d8174]" started-at="2018-12-03T04:23:44Z" name="TC14" description="User can book 1 ticket at a time" finished-at="2018-12-03T04:23:47Z" duration-ms="3222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC14 -->
+        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@a3d8174]" started-at="2018-12-03T04:23:47Z" name="TC15" description="User can open &#039;Book ticket&#039; page by clicking on &#039;Book ticket&#039; link in &#039;Train timetable&#039; page" finished-at="2018-12-03T04:23:48Z" duration-ms="743" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//tr/td[contains(text(),'Sài Gòn')]/following-sibling::td//a[contains(text(),'Huế')]"}
@@ -20,10 +24,10 @@
 Command duration or timeout: 0 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-FR5NQIN', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\Hi\AppData\Local\T...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:64501}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 70.0.3538.110, webStorageEnabled: true}
-Session ID: dec2fb084cb44e074b778cdfa82a8564
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\lan.le\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60288}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 70.0.3538.110, webStorageEnabled: true}
+Session ID: aa54e69f81cd22036c96e71590b13d53
 *** Element info: {Using=xpath, value=//tr/td[contains(text(),'Sài Gòn')]/following-sibling::td//a[contains(text(),'Huế')]}]]>
             </message>
             <full-stacktrace>
@@ -33,10 +37,10 @@ Session ID: dec2fb084cb44e074b778cdfa82a8564
 Command duration or timeout: 0 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-FR5NQIN', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\Hi\AppData\Local\T...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:64501}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 70.0.3538.110, webStorageEnabled: true}
-Session ID: dec2fb084cb44e074b778cdfa82a8564
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\lan.le\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60288}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 70.0.3538.110, webStorageEnabled: true}
+Session ID: aa54e69f81cd22036c96e71590b13d53
 *** Element info: {Using=xpath, value=//tr/td[contains(text(),'Sài Gòn')]/following-sibling::td//a[contains(text(),'Huế')]}
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -55,7 +59,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver
 at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
 at Railway.TrainTimeTablePage.selectLink(TrainTimeTablePage.java:11)
-at Railway.BookTicketTest.TC15(BookTicketTest.java:39)
+at Railway.BookTicketTest.TC15(BookTicketTest.java:45)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

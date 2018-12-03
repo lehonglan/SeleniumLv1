@@ -13,24 +13,30 @@ import Constant.InfoTicket;
 
 public class BookTicketTest extends TestBase {
 
+	InfoTicket infoTicket = new InfoTicket(bookTicketPage.bookRandomDate(), "Sài Gòn", "Nha Trang",
+			"Soft bed with air conditioner", "1");
+
 	@Test(description = "User can book 1 ticket at a time")
 	public void TC14() {
 		homePage.openTab(tabName.LOGIN);
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(tabName.BOOKTICKET);
-		bookTicketPage.bookTicket(bookTicketPage.bookRandomDate(), "Sài Gòn", "Nha Trang", "Soft bed with air conditioner", 1);
-		InfoTicket infoTicket = new InfoTicket(bookTicketPage.bookRandomDate(), "Sài Gòn", "Nha Trang", "Soft bed with air conditioner", 1);
+		bookTicketPage.bookTicket(infoTicket);
 		softAssertion.assertEquals(generalPage.getCurrentHeader(), BookTicket.SUCCESS_MESSAGE);
-		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.DEPART_DATE), infoTicket.getDepartDate());
-		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.DEPART_STATION), infoTicket.getDepartFrom());
-		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.ARRIVE_STATION), infoTicket.getArriveAt());
-		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.SEAT_TYPE), infoTicket.getSeatType());
+		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.DEPART_DATE),
+				infoTicket.getDepartDate());
+		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.DEPART_STATION),
+				infoTicket.getDepartFrom());
+		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.ARRIVE_STATION),
+				infoTicket.getArriveAt());
+		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.SEAT_TYPE),
+				infoTicket.getSeatType());
 		softAssertion.assertEquals(bookTicketPage.getCellContent(2, myTicketColumn.AMOUNT), infoTicket.getAmount());
-		bookTicketPage.cleanMyTickets();
+		bookTicketPage.cleanMyTickets(1);
 		homePage.logOut();
 		softAssertion.assertAll();
 	}
-	
+
 	@Test(description = "User can open 'Book ticket' page by clicking on 'Book ticket' link in 'Train timetable' page")
 	public void TC15() {
 		homePage.openTab(tabName.LOGIN);

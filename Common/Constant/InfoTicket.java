@@ -6,9 +6,9 @@ public class InfoTicket {
 	private String departFrom;
 	private String arriveAt;
 	private String seatType;
-	private int amount;
+	private String amount;
 
-	public InfoTicket(String departDate, String departFrom, String arriveAt, String seatType, int amount) 
+	public InfoTicket(String departDate, String departFrom, String arriveAt, String seatType, String amount) 
 	{
 		this.departDate = departDate;
 		this.departFrom = departFrom;
@@ -50,11 +50,11 @@ public class InfoTicket {
 		this.seatType = seatType;
 	}
 
-	public int getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

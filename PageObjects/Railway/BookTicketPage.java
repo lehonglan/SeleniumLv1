@@ -13,6 +13,7 @@ import Constant.Constant.FormButton;
 import Constant.Constant.ListType;
 import Constant.Constant.myTicketColumn;
 import Constant.Constant.tabName;
+import Constant.InfoTicket;
 
 public class BookTicketPage extends GeneralPage {
 
@@ -20,12 +21,6 @@ public class BookTicketPage extends GeneralPage {
 		Select list = new Select(
 				Constant.WEBDRIVER.findElement(By.xpath(String.format("//select[@name='%s']", listing.getValue()))));
 		list.selectByVisibleText(item);
-	}
-
-	public void selectFromList(ListType listing, int number) {
-		Select list = new Select(
-				Constant.WEBDRIVER.findElement(By.xpath(String.format("//select[@name='%s']", listing.getValue()))));
-		list.selectByIndex(number);
 	}
 	
 	public String getTextOfCurrentSelectedItem(ListType listing) {
@@ -42,27 +37,35 @@ public class BookTicketPage extends GeneralPage {
 				.getText();
 	}
 
-	public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, int amount) {
-		selectFromList(ListType.DEPART_DATE, departDate);
-		selectFromList(ListType.DEPART_FROM, departFrom);
-		selectFromList(ListType.ARRIVE_AT, arriveAt);
-		selectFromList(ListType.SEAT_TYPE, seatType);
-		selectFromList(ListType.TICKET_AMOUNT, amount);
+//	public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, int amount) {
+//		selectFromList(ListType.DEPART_DATE, departDate);
+//		selectFromList(ListType.DEPART_FROM, departFrom);
+//		selectFromList(ListType.ARRIVE_AT, arriveAt);
+//		selectFromList(ListType.SEAT_TYPE, seatType);
+//		selectFromList(ListType.TICKET_AMOUNT, amount);
+//		generalPage.clickFormActionButton(FormButton.BOOK_TICKET);
+//	}
+
+	public void bookTicket(InfoTicket infoTicket) {
+		selectFromList(ListType.DEPART_DATE, infoTicket.getDepartDate());
+		selectFromList(ListType.DEPART_FROM, infoTicket.getDepartFrom());
+		selectFromList(ListType.ARRIVE_AT, infoTicket.getArriveAt());
+		selectFromList(ListType.SEAT_TYPE, infoTicket.getSeatType());
+		selectFromList(ListType.TICKET_AMOUNT, infoTicket.getAmount());
 		generalPage.clickFormActionButton(FormButton.BOOK_TICKET);
 	}
-
 	public String bookRandomDate() {
 		LocalDate baseDate = LocalDate.now().plusDays(3);
-		Integer maxRandomValue = 30;
+		Integer maxRandomValue = 27;
 		Integer randomDays = (int) (maxRandomValue * Math.random());
 		LocalDate randomDate = baseDate.plusDays(randomDays);
-		return DateTimeFormatter.ofPattern("dd-MMM-yy").format(randomDate);
+		return DateTimeFormatter.ofPattern("M/d/yyyy").format(randomDate);
 	}
 
-	public void cleanMyTickets() {
+	public void cleanMyTickets(int amount) {
 		try {
 			homePage.openTab(tabName.MYTICKET);
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < amount; i++) {
 				clickCancelButton();
 				utilities.confirmPromt();
 			}
