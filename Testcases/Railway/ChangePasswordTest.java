@@ -8,7 +8,7 @@ import Constant.Constant;
 import Constant.Constant.ChangePassword;
 import Constant.Constant.FormBox;
 import Constant.Constant.ResetPassword;
-import Constant.Constant.tabName;
+import Constant.Constant.TabName;
 import Utilities.Utilities;
 
 public class ChangePasswordTest extends TestBase {
@@ -16,7 +16,7 @@ public class ChangePasswordTest extends TestBase {
 	@BeforeClass
 	public void beforeClass() {
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
-		homePage.openTab(tabName.LOGIN);
+		homePage.openTab(TabName.LOGIN);
 	}
 
 	@AfterClass
@@ -28,7 +28,7 @@ public class ChangePasswordTest extends TestBase {
 	@Test(description = "User can change password")
 	public void TC09() {
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
-		homePage.openTab(tabName.CHANGEPASSWORD);
+		homePage.openTab(TabName.CHANGEPASSWORD);
 		changePasswordPage.changePassword(Constant.PASSWORD, Constant.NEW_PASSWORD, Constant.NEW_PASSWORD);
 		softAssertion.assertEquals(changePasswordPage.getMessageSuccess(), ChangePassword.SUCCESS_MESSAGE);
 		homePage.logOut();

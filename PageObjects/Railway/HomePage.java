@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
-import Constant.Constant.tabName;
+import Constant.Constant.TabName;
 
 
 
@@ -24,17 +24,17 @@ public class HomePage {
 		return this;
 	}
 	
-	public void openTab(tabName	name) {
+	public void openTab(TabName	name) {
 		getTab(name.getValue()).click();
 	}
 	
-	public void getTabName(tabName name) {
+	public void getTabName(TabName name) {
 		getTab(name.getValue()).getText();
 	}
 	
 	public void logOut() {
 		try {
-			openTab(tabName.LOGOUT);
+			openTab(TabName.LOGOUT);
 		} catch (Exception e) {
 		}
 	}

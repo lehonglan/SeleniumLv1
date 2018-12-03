@@ -1,5 +1,6 @@
 package Railway;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
@@ -23,8 +24,8 @@ public class TestBase {
 		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
 	}
 
-//	@AfterClass
-//	public void afterClass() {
-//		Utilities.closeBrowser();
-//	}
+	@AfterClass
+	public void afterClass() {
+		Utilities.closeBrowser();
+	}
 }

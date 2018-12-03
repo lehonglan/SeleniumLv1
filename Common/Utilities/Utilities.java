@@ -16,13 +16,12 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Constant.Constant;
 import Constant.Constant.ListType;
-import Constant.Constant.tabName;
+import Constant.Constant.TabName;
 import Railway.HomePage;
 
 public class Utilities {
@@ -36,21 +35,10 @@ public class Utilities {
 		Constant.WEBDRIVER.manage().window().maximize();
 	}
 
-	// chua co driver for firefox
-	public void openFirefox() {
-		System.setProperty("webdriver.firefox.driver", "abc");
-		Constant.WEBDRIVER = new FirefoxDriver();
-		Constant.WEBDRIVER.manage().window().maximize();
-	}
-
 	public void openURLInBrowser(String url, String browser) {
 		switch (browser) {
 		case "chrome":
 			openChrome();
-			Constant.WEBDRIVER.navigate().to(url);
-			break;
-		case "firefox":
-			openFirefox();
 			Constant.WEBDRIVER.navigate().to(url);
 			break;
 		default:
@@ -83,13 +71,11 @@ public class Utilities {
 		connectToMail();
 		try {
 			Message email = emailUtils.getMessagesBySubject(mailsubject, true, 1)[0];
-//			Message email = emailUtils.getLatestMessage();
 			String content = emailUtils.getMessageContent(email);
 			String link = extractUrls(content).get(0);
 
 			Constant.WEBDRIVER.get(link);
 
-			// TODO: continue testing
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,7 +86,7 @@ public class Utilities {
 		Constant.WEBDRIVER.quit();
 	}
 
-	public static boolean isTabDisplay(tabName name) {
+	public static boolean isTabDisplay(TabName name) {
 		try {
 			WebElement x = homePage.getTab(name.getValue());
 			return x.isDisplayed();
@@ -112,7 +98,7 @@ public class Utilities {
 	public void selectRandomItemFromList (ListType listing) {
 		List<WebElement> list = Constant.WEBDRIVER.findElements(By.xpath(String.format("//select[@name='%s']/option",listing)));
 		Random r = new Random();
-		int randomValue = r.nextInt(list.size()); //Getting a random value that is between 0 and (list's size)-1
+		int randomValue = r.nextInt(list.size());
 		list.get(randomValue).click();
 	}
 

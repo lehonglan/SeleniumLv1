@@ -124,7 +124,7 @@ public class Constant {
 		public static String SUCCESS_MESSAGE = "Ticket booked successfully!";
 	}
 	
-	public enum myTicketColumn {
+	public enum MyTicketColumn {
 		DEPART_STATION("1"), 
 		ARRIVE_STATION("2"), 
 		SEAT_TYPE("3"), 
@@ -137,7 +137,7 @@ public class Constant {
 			return value;
 		}
 
-		private myTicketColumn(String value) {
+		private MyTicketColumn(String value) {
 			this.value = value;
 		}
 	}
@@ -157,7 +157,7 @@ public class Constant {
 		}
 	}
 
-	public enum tabName {
+	public enum TabName {
 		LOGIN("Login"), 
 		LOGOUT("Log out"), 
 		BOOKTICKET("Book ticket"), 
@@ -172,14 +172,14 @@ public class Constant {
 			return value;
 		}
 
-		private tabName(String value) {
+		private TabName(String value) {
 			this.value = value;
 		}
 	}
 
 	public static class ReturnFailMessage {
 
-		public static String tabIsNotShown(tabName element) {
+		public static String tabIsNotShown(TabName element) {
 			return (element + " is not shown as expected");
 		}
 

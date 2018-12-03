@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
-import Constant.Constant.tabName;
+import Constant.Constant.TabName;
 
 public class LoginPage extends GeneralPage{
 
@@ -81,7 +81,7 @@ public class LoginPage extends GeneralPage{
 	}
 	
 	public void sendMailResetPassword(String email) {
-		homePage.openTab(tabName.LOGIN);
+		homePage.openTab(TabName.LOGIN);
 		loginPage.openForgotPasswordLink();
 		loginPage.inputEmail(email);
 		changePasswordPage.clickFormActionButton(FormButton.SEND_INSTRUCTIONS);
