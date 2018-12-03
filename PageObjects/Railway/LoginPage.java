@@ -48,10 +48,7 @@ public class LoginPage extends GeneralPage{
 			login(username, password);
 		}
 	}
-	/*
-	 * *
-	 * *
-	 */
+
 	public void resetPasswordToDefault(String username) {
 		sendMailResetPassword(username);
 		utilities.openValidateLink("Please reset your password");

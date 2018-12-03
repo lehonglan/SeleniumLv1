@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Constant.Constant;
 import Constant.Constant.ListType;
 import Constant.Constant.TabName;
+import Constant.Constant.TimeOut;
 import Railway.HomePage;
 
 public class Utilities {
@@ -51,11 +52,6 @@ public class Utilities {
 	public String generateMail() {
 		String t = String.valueOf(System.currentTimeMillis());	
 		return (Constant.USERNAME_WITHOUT_DOMAIN + "+" + t.substring(5, t.length())) + "@gmail.com";
-	}
-
-	public void waitForElement(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	public void connectToMail() {
@@ -128,5 +124,12 @@ public class Utilities {
 	public Writer convertUTF8 (Writer text) {
 		return text = new BufferedWriter(new OutputStreamWriter(System.out));
 	}
-
+	
+	public void waitForElementDisplays(By element) {
+		try {
+			WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER,TimeOut.DEFAULT.getValue());
+			wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+		} catch (NoSuchElementException e) {
+		}
+	}
 }

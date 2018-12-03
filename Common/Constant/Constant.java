@@ -35,6 +35,21 @@ public class Constant {
 		}
 	}
 	
+	public enum TimeOut {
+		DEFAULT(5),
+		LONG(20);
+
+		private int value;
+
+		public int getValue() {
+			return value;
+		}
+
+		private TimeOut(int value) {
+			this.value = value;
+		}
+	}
+	
 	public enum ListType {
 		DEPART_DATE("Date"),
 		DEPART_FROM("DepartStation"),
