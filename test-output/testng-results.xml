@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-12-03T09:16:12Z" name="Default suite" finished-at="2018-12-03T09:16:18Z" duration-ms="6028">
+  <suite started-at="2018-12-05T10:40:41Z" name="Default suite" finished-at="2018-12-05T10:40:50Z" duration-ms="8837">
     <groups>
     </groups>
-    <test started-at="2018-12-03T09:16:12Z" name="Default test" finished-at="2018-12-03T09:16:18Z" duration-ms="6028">
+    <test started-at="2018-12-05T10:40:41Z" name="Default test" finished-at="2018-12-05T10:40:50Z" duration-ms="8837">
       <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@b62d79]" started-at="2018-12-03T09:16:12Z" name="beforeClass" finished-at="2018-12-03T09:16:17Z" duration-ms="5058" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.BookTicketTest@1ba9117e]" started-at="2018-12-05T10:40:41Z" name="beforeClass" finished-at="2018-12-05T10:40:45Z" duration-ms="4098" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="TC16()[pri:0, instance:Railway.BookTicketTest@b62d79]" started-at="2018-12-03T09:16:17Z" name="TC16" description="User can cancel a ticket" finished-at="2018-12-03T09:16:18Z" duration-ms="953" status="PASS">
+        <test-method signature="TC14()[pri:0, instance:Railway.BookTicketTest@1ba9117e]" started-at="2018-12-05T10:40:45Z" name="TC14" description="User can book 1 ticket at a time" finished-at="2018-12-05T10:40:47Z" duration-ms="2015" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC14 -->
+        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@1ba9117e]" started-at="2018-12-05T10:40:47Z" name="TC15" description="User can open &#039;Book ticket&#039; page by clicking on &#039;Book ticket&#039; link in &#039;Train timetable&#039; page" finished-at="2018-12-05T10:40:48Z" duration-ms="1079" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC15 -->
+        <test-method signature="TC16()[pri:0, instance:Railway.BookTicketTest@1ba9117e]" started-at="2018-12-05T10:40:48Z" name="TC16" description="User can cancel a ticket" finished-at="2018-12-05T10:40:50Z" duration-ms="1624" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC16 -->
