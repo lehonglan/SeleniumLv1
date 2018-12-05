@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 
 import Constant.Constant;
 import Constant.Constant.Login;
+import Constant.Constant.PageHeader;
 import Constant.Constant.ReturnFailMessage;
 import Constant.Constant.TabName;
-import Constant.Constant.pageHeader;
 import Utilities.Utilities;
 
 public class LoginTest extends TestBase {
@@ -17,7 +17,7 @@ public class LoginTest extends TestBase {
 	public void TC01() {
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-		assertEquals(generalPage.getWelcomeMessage(), Login.welcomeMessage(Constant.USERNAME));
+		assertEquals(loginPage.getWelcomeMessage(), Login.welcomeMessage(Constant.USERNAME));
 		homePage.logOut();
 	}
 
@@ -25,7 +25,7 @@ public class LoginTest extends TestBase {
 	public void TC02() {
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login("", Constant.PASSWORD);
-		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_MESSAGE);
+		assertEquals(loginPage.getErrorMessage(), Login.ERROR_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -33,14 +33,14 @@ public class LoginTest extends TestBase {
 	public void TC03() {
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME, "INVALIDPASSWORD");
-		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_MESSAGE);
+		assertEquals(loginPage.getErrorMessage(), Login.ERROR_MESSAGE);
 		homePage.logOut();
 	}
 
 	@Test(description = "Login page displays when un-logged User clicks on 'Book ticket' tab")
 	public void TC04() {
 		homePage.openTab(TabName.BOOKTICKET);
-		assertEquals(generalPage.getCurrentHeader(), pageHeader.LOGIN.getValue());
+		assertEquals(generalPage.getCurrentHeader(), PageHeader.LOGIN.getValue());
 		homePage.logOut();
 	}
 
@@ -48,7 +48,7 @@ public class LoginTest extends TestBase {
 	public void TC05() {
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME, "INVALIDPASSWORD", 4);
-		assertEquals(loginPage.getLoginErrorMessage(), Login.ERROR_4TIMES_MESSAGE);
+		assertEquals(loginPage.getErrorMessage(), Login.ERROR_4TIMES_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -65,10 +65,10 @@ public class LoginTest extends TestBase {
 				ReturnFailMessage.tabIsNotShown(TabName.CHANGEPASSWORD));
 
 		homePage.openTab(TabName.MYTICKET);
-		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageHeader.MYTICKET.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), PageHeader.MYTICKET.getValue());
 
 		homePage.openTab(TabName.CHANGEPASSWORD);
-		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageHeader.CHANGEPASSWORD.getValue());
+		softAssertion.assertEquals(generalPage.getCurrentHeader(), PageHeader.CHANGEPASSWORD.getValue());
 
 		homePage.logOut();
 		softAssertion.assertAll();
@@ -78,7 +78,7 @@ public class LoginTest extends TestBase {
 	public void TC08() {
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME_INACTIVE, Constant.PASSWORD);
-		assertEquals(loginPage.getLoginErrorMessage(), Login.INACTIVE_ACCOUNT_MESSAGE);
+		assertEquals(loginPage.getErrorMessage(), Login.INACTIVE_ACCOUNT_MESSAGE);
 		homePage.logOut();
 	}
 }

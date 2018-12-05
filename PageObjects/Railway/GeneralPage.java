@@ -32,9 +32,17 @@ public class GeneralPage {
 	}
 
 	// Methods
+	public String getErrorMessage() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[contains(@class,'error')]")).getText();
+	}
+	
+	public String getSuccessMessage() {
+		return Constant.WEBDRIVER.findElement(By.xpath("//p[contains(@class,'success')]")).getText();
+	}
+	
 	public String getMessageErrorNextTheBox(FormBox boxname) {
 		return Constant.WEBDRIVER
-				.findElement(By.xpath(String.format("//label[@class='validation-error' and @for='%s']", boxname.getValue()))).getText();
+				.findElement(By.xpath(String.format("//input[@id='%s']/following-sibling::label", boxname.getValue()))).getText();
 	}
 	
 	public String getWelcomeMessage() {

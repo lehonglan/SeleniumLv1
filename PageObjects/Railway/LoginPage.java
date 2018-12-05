@@ -19,20 +19,8 @@ public class LoginPage extends GeneralPage{
 		getBox(FormBox.EMAIL).sendKeys(email);
 	}
 	
-	public String getLoginErrorMessage() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error LoginForm']")).getText();
-	}
-	
-	public String getResetPasswordSuccessMessage() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message success']")).getText();
-	}
-	
-	public String getResetPasswordErrorMessage() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
-	}
-	
 	public void openForgotPasswordLink() {
-		Constant.WEBDRIVER.findElement(By.xpath("//a[contains(text(),'Forgot Password')]")).click();
+		Constant.WEBDRIVER.findElement(By.xpath("//a[contains(@href,'Forgot')]")).click();
 	}
 
 	public void login(String username, String password) {

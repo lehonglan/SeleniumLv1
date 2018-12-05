@@ -28,7 +28,7 @@ public class RegisterTest extends TestBase {
 		homePage.openTab(TabName.REGISTER);
 		registerPage.register(utilities.generateMail(), Constant.PASSWORD,
 				Constant.NEW_PASSWORD, Constant.PASSWORD);
-		assertEquals(registerPage.getRegisterMessageError(), Register.ERROR_FORM_MESSAGE);
+		assertEquals(registerPage.getErrorMessage(), Register.ERROR_FORM_MESSAGE);
 		homePage.logOut();
 	}
 
@@ -36,7 +36,7 @@ public class RegisterTest extends TestBase {
 	public void TC11() {
 		homePage.openTab(TabName.REGISTER);
 		registerPage.register(utilities.generateMail(), Constant.EMPTY, Constant.EMPTY, Constant.EMPTY);
-		softAssertion.assertEquals(registerPage.getRegisterMessageError(), Register.ERROR_FORM_MESSAGE);
+		softAssertion.assertEquals(registerPage.getErrorMessage(), Register.ERROR_FORM_MESSAGE);
 		softAssertion.assertEquals(
 				registerPage.getMessageErrorNextTheBox(FormBox.PASSWORD),
 				Register.ERROR_PASSWORD_MESSAGE);

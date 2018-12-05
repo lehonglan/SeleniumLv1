@@ -111,7 +111,7 @@ public class Constant {
 		}
 	}
 
-	public enum pageHeader{
+	public enum PageHeader{
 		LOGIN("Login page"), 
 		CHANGEPASSWORD("Change password"), 
 		MYTICKET("Manage ticket"),
@@ -123,7 +123,7 @@ public class Constant {
 			return value;
 		}
 
-		private pageHeader(String value) {
+		private PageHeader(String value) {
 			this.value = value;
 		}
 	}

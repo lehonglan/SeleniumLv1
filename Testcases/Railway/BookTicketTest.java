@@ -8,24 +8,20 @@ import Constant.Constant;
 import Constant.Constant.BookTicket;
 import Constant.Constant.ListType;
 import Constant.Constant.MyTicketColumn;
+import Constant.Constant.PageHeader;
 import Constant.Constant.TabName;
 import Constant.Constant.TimeTableLink;
-import Constant.Constant.pageHeader;
 import Constant.InfoTicket;
 
 public class BookTicketTest extends TestBase {
 
 	InfoTicket infoTicket = new InfoTicket(bookTicketPage.bookRandomDate(), "Sài Gòn", "Nha Trang",
 			"Soft bed with air conditioner", "1");
-	@BeforeClass
-	public void beforeClass() {
-		utilities.openURLInBrowser(Constant.RAILWAY_URL, "chrome");
-		homePage.openTab(TabName.LOGIN);
-		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
-	}
 
 	@Test(description = "User can book 1 ticket at a time")
 	public void TC14() {
+		homePage.openTab(TabName.LOGIN);
+		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.BOOKTICKET);
 		bookTicketPage.bookTicket(infoTicket);
 		softAssertion.assertEquals(generalPage.getCurrentHeader(), BookTicket.SUCCESS_MESSAGE);
@@ -45,16 +41,21 @@ public class BookTicketTest extends TestBase {
 
 	@Test(description = "User can open 'Book ticket' page by clicking on 'Book ticket' link in 'Train timetable' page")
 	public void TC15() {
+		homePage.openTab(TabName.LOGIN);
+		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.TIMETABLE);
 		trainTimeTablePage.selectLink("Sài Gòn", "Huế", TimeTableLink.BOOK_TICKET);
-		softAssertion.assertEquals(generalPage.getCurrentHeader(), pageHeader.BOOKTICKET.getValue());
+		softAssertion.assertEquals(bookTicketPage.getCurrentHeader(), PageHeader.BOOKTICKET.getValue());
 		softAssertion.assertEquals(bookTicketPage.getTextOfCurrentSelectedItem(ListType.DEPART_FROM), "Sài Gòn");
 		softAssertion.assertEquals(bookTicketPage.getTextOfCurrentSelectedItem(ListType.ARRIVE_AT), "Huế");
+		homePage.logOut();
 		softAssertion.assertAll();
 	}
 	
 	@Test(description = "User can cancel a ticket")
 	public void TC16() {
+		homePage.openTab(TabName.LOGIN);
+		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.BOOKTICKET);
 		bookTicketPage.bookTicket(infoTicket);
 		bookTicketPage.cancelTicket(infoTicket.getDepartFrom(), infoTicket.getArriveAt());

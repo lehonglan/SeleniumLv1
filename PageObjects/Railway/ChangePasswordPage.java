@@ -1,20 +1,9 @@
 package Railway;
 
-import org.openqa.selenium.By;
-
-import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
 
 public class ChangePasswordPage extends GeneralPage{
-	
-	public String getMessageSuccess() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message success']")).getText();
-	}
-	
-	public String getMessageError() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
-	}
 	
 	public void changePassword(String currentpass, String newpass, String confirmpass) {
 		getBox(FormBox.CURRENT_PASSWORD).clear();

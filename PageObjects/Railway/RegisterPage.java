@@ -1,8 +1,5 @@
 package Railway;
 
-import org.openqa.selenium.By;
-
-import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
 
@@ -12,10 +9,6 @@ public class RegisterPage extends GeneralPage{
 	// Elements
 
 	// Methods
-	public String getRegisterMessageError() {
-		return Constant.WEBDRIVER.findElement(By.xpath("//p[@class='message error']")).getText();
-	}
-
 	public void register(String email, String password, String confirmpassword, String pidnumber) {
 		getBox(FormBox.EMAIL).clear();
 		getBox(FormBox.PASSWORD).clear();
