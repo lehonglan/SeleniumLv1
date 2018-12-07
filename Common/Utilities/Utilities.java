@@ -107,4 +107,12 @@ public class Utilities {
 		} catch (NoSuchElementException e) {
 		}
 	}
+
+	public void waitForDropDownDisplays(By webElement) {
+		try {
+			WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, TimeOut.DEFAULT.getValue());
+			wait.until(ExpectedConditions.elementToBeClickable(webElement));
+		} catch (NoSuchElementException e) {
+		}
+	}
 }

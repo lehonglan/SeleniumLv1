@@ -19,6 +19,10 @@ import Constant.InfoTicket;
 
 public class BookTicketPage extends GeneralPage {
 
+	public By selectList(ListType listing) {
+		return By.xpath(String.format("//select[@name='%s']", listing.getValue()));
+	}
+	
 	public void bookTickets(int tickets) {
 		for (int i = 1; i <= tickets; i++) {
 			bookTicketRandomly();
@@ -78,7 +82,9 @@ public class BookTicketPage extends GeneralPage {
 
 	public void bookTicket(InfoTicket infoTicket) {
 		selectFromList(ListType.DEPART_DATE, infoTicket.getDepartDate());
+		utilities.waitForDropDownDisplays(selectList(ListType.DEPART_FROM));
 		selectFromList(ListType.DEPART_FROM, infoTicket.getDepartFrom());
+		utilities.waitForDropDownDisplays(selectList(ListType.ARRIVE_AT));
 		selectFromList(ListType.ARRIVE_AT, infoTicket.getArriveAt());
 		selectFromList(ListType.SEAT_TYPE, infoTicket.getSeatType());
 		selectFromList(ListType.TICKET_AMOUNT, infoTicket.getAmount());
@@ -87,7 +93,9 @@ public class BookTicketPage extends GeneralPage {
 	
 	public void bookTicketRandomly() {
 		selectRandomFromList(ListType.DEPART_DATE);
+		utilities.waitForDropDownDisplays(selectList(ListType.DEPART_FROM));
 		selectRandomFromList(ListType.DEPART_FROM);
+		utilities.waitForDropDownDisplays(selectList(ListType.ARRIVE_AT));
 		selectRandomFromList(ListType.ARRIVE_AT);
 		selectRandomFromList(ListType.SEAT_TYPE);
 		selectFromList(ListType.TICKET_AMOUNT, "1");

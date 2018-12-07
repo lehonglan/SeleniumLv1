@@ -37,14 +37,12 @@ public class MyTicketPage {
 				.getText();
 	}
 	
-	public int countAmoutOfSelectedFilter(ListType listing) {
-		List<WebElement> list = Constant.WEBDRIVER.findElements(By.xpath(String.format("//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()='%s']",getTextOfCurrentSelectedItem(listing))));
-		return list.size();
-	}
-	
 	public boolean isFilteredTicketsDisplay(ListType listing) {
-		int a = countAmoutOfSelectedFilter(listing);
-		if (a >= 1) {
+		List<WebElement> expectedTickets = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()='%s']",getTextOfCurrentSelectedItem(listing))));
+		List<WebElement> unExpectedTicket = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()!='%s']",getTextOfCurrentSelectedItem(listing))));
+		int expected = expectedTickets.size();
+		int unexpected = unExpectedTicket.size();
+		if (expected >= 1 && unexpected == 0) {
 			return true;
 		} else {
 			return false;
