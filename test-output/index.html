@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\lan.le\AppData\Local\Temp\testng-eclipse-400164986\testng-customsuite.xml</span>
+                    <span>C:\Users\lan.le\AppData\Local\Temp\testng-eclipse--174132735\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Railway.MyTicketTest" class="method navigator-link" hash-for-method="FTTC01">FTTC01</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Railway.MyTicketTest" class="method navigator-link" hash-for-method="FTTC02">FTTC02</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -125,19 +125,19 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="FTTC01">
-                  </a> <!-- FTTC01 -->
-                  <span class="method-name">FTTC01</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Phan Thiết
+                  <a name="FTTC02">
+                  </a> <!-- FTTC02 -->
+                  <span class="method-name">FTTC02</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Huế
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.13.0&apos;, revision: &apos;2f0d292&apos;, time: &apos;2018-06-25T15:24:21.231Z&apos;
 System info: host: &apos;LGDN18-1071-W10&apos;, ip: &apos;192.168.191.82&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.1&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:151)
-	at Railway.BookTicketPage.selectFromList(BookTicketPage.java:38)
-	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:92)
-	at Railway.BookTicketPage.bookTickets(BookTicketPage.java:30)
-	at Railway.MyTicketTest.FTTC01(MyTicketTest.java:16)
+	at Railway.BookTicketPage.selectFromList(BookTicketPage.java:34)
+	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:94)
+	at Railway.BookTicketPage.bookTickets(BookTicketPage.java:26)
+	at Railway.MyTicketTest.FTTC02(MyTicketTest.java:35)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -174,7 +174,7 @@ Driver info: driver.version: unknown
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\lan.le\AppData\Local\Temp\testng-eclipse-400164986\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\lan.le\AppData\Local\Temp\testng-eclipse--174132735\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,7 +185,7 @@ Driver info: driver.version: unknown
     &lt;classes&gt;
       &lt;class name=&quot;Railway.MyTicketTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;FTTC01&quot;/&gt;
+          &lt;include name=&quot;FTTC02&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- Railway.MyTicketTest --&gt;
     &lt;/classes&gt;
@@ -229,14 +229,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'FTTC01')
+data.setCell(0, 1, 'FTTC02')
 data.setCell(0, 2, 'Railway.MyTicketTest')
-data.setCell(0, 3, 9163);
+data.setCell(0, 3, 7462);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -251,9 +251,16 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Railway.MyTicketTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">FTTC01</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -270,9 +277,13 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">FTTC01</span>
-                <span class="method-start">4205 ms</span>
+                <span class="method-name">FTTC02</span>
+                <span class="method-start">4064 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">11532 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

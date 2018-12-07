@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="1" total="2" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-12-07T09:50:46Z" name="Default suite" finished-at="2018-12-07T09:50:59Z" duration-ms="13380">
+  <suite started-at="2018-12-07T11:34:57Z" name="Default suite" finished-at="2018-12-07T11:35:10Z" duration-ms="12141">
     <groups>
     </groups>
-    <test started-at="2018-12-07T09:50:46Z" name="Default test" finished-at="2018-12-07T09:50:59Z" duration-ms="13380">
+    <test started-at="2018-12-07T11:34:57Z" name="Default test" finished-at="2018-12-07T11:35:10Z" duration-ms="12141">
       <class name="Railway.MyTicketTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.MyTicketTest@7e9131d5]" started-at="2018-12-07T09:50:46Z" name="beforeClass" finished-at="2018-12-07T09:50:50Z" duration-ms="4200" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.MyTicketTest@152aa092]" started-at="2018-12-07T11:34:57Z" name="beforeClass" finished-at="2018-12-07T11:35:02Z" duration-ms="4059" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="FTTC01()[pri:0, instance:Railway.MyTicketTest@7e9131d5]" started-at="2018-12-07T09:50:50Z" name="FTTC01" description="User can filter &#039;Manager ticket&#039; table with Depart Station" finished-at="2018-12-07T09:50:59Z" duration-ms="9163" status="FAIL">
+        <test-method signature="FTTC02()[pri:0, instance:Railway.MyTicketTest@152aa092]" started-at="2018-12-07T11:35:02Z" name="FTTC02" description="User can filter &#039;Manager ticket&#039; table with Depart Station" finished-at="2018-12-07T11:35:09Z" duration-ms="7462" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Cannot locate element with text: Phan Thiết
+              <![CDATA[Cannot locate element with text: Huế
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
 System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: driver.version: unknown]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Phan Thiết
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Huế
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
 System info: host: 'LGDN18-1071-W10', ip: '192.168.191.82', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
 Driver info: driver.version: unknown
 at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:151)
-at Railway.BookTicketPage.selectFromList(BookTicketPage.java:38)
-at Railway.BookTicketPage.bookTicket(BookTicketPage.java:92)
-at Railway.BookTicketPage.bookTickets(BookTicketPage.java:30)
-at Railway.MyTicketTest.FTTC01(MyTicketTest.java:16)
+at Railway.BookTicketPage.selectFromList(BookTicketPage.java:34)
+at Railway.BookTicketPage.bookTicket(BookTicketPage.java:94)
+at Railway.BookTicketPage.bookTickets(BookTicketPage.java:26)
+at Railway.MyTicketTest.FTTC02(MyTicketTest.java:35)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -61,7 +61,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FTTC01 -->
+        </test-method> <!-- FTTC02 -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.MyTicketTest@152aa092]" started-at="2018-12-07T11:35:09Z" name="afterClass" finished-at="2018-12-07T11:35:10Z" duration-ms="603" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
       </class> <!-- Railway.MyTicketTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

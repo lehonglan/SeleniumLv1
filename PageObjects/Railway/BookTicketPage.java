@@ -2,6 +2,8 @@ package Railway;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -14,15 +16,13 @@ import Constant.Constant.ListType;
 import Constant.Constant.MyTicketColumn;
 import Constant.Constant.TabName;
 import Constant.InfoTicket;
-import Utilities.RandomdropDownValue;
 
 public class BookTicketPage extends GeneralPage {
 
 	public void bookTickets(int tickets) {
 		for (int i = 1; i <= tickets; i++) {
-			RandomdropDownValue random = new RandomdropDownValue();
-			InfoTicket infoTicket = new InfoTicket(bookRandomDate(), random.randomdValues(ListType.DEPART_FROM),
-					random.randomdValues(ListType.ARRIVE_AT), "Soft bed with air conditioner", "1");
+			InfoTicket infoTicket = new InfoTicket(bookRandomDate(), selectRandomFromList(ListType.DEPART_FROM),
+					selectRandomFromList(ListType.ARRIVE_AT), "Soft bed with air conditioner", "1");
 			bookTicket(infoTicket);
 			bookTicketPage.openTab(TabName.BOOKTICKET);
 		}
@@ -32,6 +32,14 @@ public class BookTicketPage extends GeneralPage {
 		Select list = new Select(
 				Constant.WEBDRIVER.findElement(By.xpath(String.format("//select[@name='%s']", listing.getValue()))));
 		list.selectByVisibleText(item);
+	}
+	
+	public String selectRandomFromList(ListType listing) {
+		Select list = new Select(
+				Constant.WEBDRIVER.findElement(By.xpath(String.format("//select[@name='%s']", listing.getValue()))));
+		Random rand = new Random();
+		List<WebElement> listAll = list.getOptions();
+		return listAll.get(rand.nextInt(listAll.size())).getText();
 	}
 
 	public String getTextOfCurrentSelectedItem(ListType listing) {
@@ -73,13 +81,13 @@ public class BookTicketPage extends GeneralPage {
 	public void bookTicket(InfoTicket infoTicket) {
 		selectFromList(ListType.DEPART_DATE, infoTicket.getDepartDate());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		selectFromList(ListType.DEPART_FROM, infoTicket.getDepartFrom());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
