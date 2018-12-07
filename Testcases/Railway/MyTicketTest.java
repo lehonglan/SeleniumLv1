@@ -1,7 +1,7 @@
 package Railway;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Constant.ListType;
@@ -14,6 +14,8 @@ public class MyTicketTest extends TestBase{
 	
 	@Test(description = "User can filter 'Manager ticket' table with Depart Station")
 	public void FTTC01() {
+		SoftAssert softAssertion = new SoftAssert();
+		
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.BOOKTICKET);
@@ -21,14 +23,16 @@ public class MyTicketTest extends TestBase{
 		bookTicketPage.openTab(TabName.MYTICKET);
 		myTicketPage.applyFilter(ListType.FILTER_DEPART_STATION,myTicketPage.getDepartStationFirstTicket());
 		
-		Assert.assertTrue(myTicketPage.isFilteredTicketsDisplay(ListType.FILTER_DEPART_STATION));
+		softAssertion.assertTrue(myTicketPage.isFilteredTicketsDisplay(ListType.FILTER_DEPART_STATION));
 		
 		bookTicketPage.cleanMyTickets(7);
 		homePage.logOut();
+		softAssertion.assertAll();
 	}
 	
 	@Test(description = "User can filter 'Manager ticket' table with Depart Station")
 	public void FTTC02() {
+		SoftAssert softAssertion = new SoftAssert();
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.BOOKTICKET);
@@ -36,10 +40,11 @@ public class MyTicketTest extends TestBase{
 		bookTicketPage.openTab(TabName.MYTICKET);
 		myTicketPage.applyFilter(ListType.FILTER_STATUS,"Paid");
 		
-		Assert.assertEquals(myTicketPage.getErrorMessage(), MyTicket.FILTER_ERROR_MESSAGE);
+		softAssertion.assertEquals(myTicketPage.getErrorMessage(), MyTicket.FILTER_ERROR_MESSAGE);
 		
 		bookTicketPage.cleanMyTickets(7);
 		homePage.logOut();
+		softAssertion.assertAll();
 	}
 
 }

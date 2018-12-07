@@ -21,9 +21,7 @@ public class BookTicketPage extends GeneralPage {
 
 	public void bookTickets(int tickets) {
 		for (int i = 1; i <= tickets; i++) {
-			InfoTicket infoTicket = new InfoTicket(bookRandomDate(), selectRandomFromList(ListType.DEPART_FROM),
-					selectRandomFromList(ListType.ARRIVE_AT), "Soft bed with air conditioner", "1");
-			bookTicket(infoTicket);
+			bookTicketRandomly();
 			bookTicketPage.openTab(TabName.BOOKTICKET);
 		}
 	}
@@ -34,12 +32,12 @@ public class BookTicketPage extends GeneralPage {
 		list.selectByVisibleText(item);
 	}
 	
-	public String selectRandomFromList(ListType listing) {
+	public void selectRandomFromList(ListType listing) {
 		Select list = new Select(
 				Constant.WEBDRIVER.findElement(By.xpath(String.format("//select[@name='%s']", listing.getValue()))));
 		Random rand = new Random();
 		List<WebElement> listAll = list.getOptions();
-		return listAll.get(rand.nextInt(listAll.size())).getText();
+		listAll.get(rand.nextInt(listAll.size())).click();
 	}
 
 	public String getTextOfCurrentSelectedItem(ListType listing) {
@@ -80,20 +78,19 @@ public class BookTicketPage extends GeneralPage {
 
 	public void bookTicket(InfoTicket infoTicket) {
 		selectFromList(ListType.DEPART_DATE, infoTicket.getDepartDate());
-		try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		selectFromList(ListType.DEPART_FROM, infoTicket.getDepartFrom());
-		try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		selectFromList(ListType.ARRIVE_AT, infoTicket.getArriveAt());
 		selectFromList(ListType.SEAT_TYPE, infoTicket.getSeatType());
 		selectFromList(ListType.TICKET_AMOUNT, infoTicket.getAmount());
+		generalPage.clickFormActionButton(FormButton.BOOK_TICKET);
+	}
+	
+	public void bookTicketRandomly() {
+		selectRandomFromList(ListType.DEPART_DATE);
+		selectRandomFromList(ListType.DEPART_FROM);
+		selectRandomFromList(ListType.ARRIVE_AT);
+		selectRandomFromList(ListType.SEAT_TYPE);
+		selectFromList(ListType.TICKET_AMOUNT, "1");
 		generalPage.clickFormActionButton(FormButton.BOOK_TICKET);
 	}
 

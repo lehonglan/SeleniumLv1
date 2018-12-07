@@ -17,7 +17,7 @@ public class MyTicketPage {
 	
 	public void applyFilter(ListType listing,String item) {
 		selectFromList(listing,item);
-		Constant.WEBDRIVER.findElement(By.xpath(String.format("//input[@value='Apply filter']']"))).click();
+		Constant.WEBDRIVER.findElement(By.xpath(String.format("//input[@value='Apply filter']"))).click();
 	}
 	
 	public void selectFromList(ListType listing, String item) {

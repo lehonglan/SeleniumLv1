@@ -14,7 +14,7 @@ public class Constant {
 	public static String EMPTY = "";
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = /* "http://localhost:8888"; */ "http://192.168.189.206:8888";
+	public static String RAILWAY_URL =  "http://localhost:8888";  /*"http://192.168.189.206:8888";*/
 
 	public enum FormButton {
 		BOOK_TICKET("Book ticket"), REGISTER("Register"), LOGIN("login"), CHANGE_PASSWORD("Change Password"),
@@ -87,8 +87,7 @@ public class Constant {
 	}
 
 	public static class MyTicket {
-		public static String FILTER_ERROR_MESSAGE = "Sorry, can't find any results that match your filters. \r\n"
-				+ "Please change the filters and try again.";
+		public static String FILTER_ERROR_MESSAGE = "Sorry, can't find any results that match your filters.\nPlease change the filters and try again.";
 	}
 
 	public static class Login {
