@@ -3,6 +3,7 @@ package Railway;
 import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Constant.Login;
@@ -54,6 +55,8 @@ public class LoginTest extends TestBase {
 
 	@Test(description = "Additional pages display once user logged in")
 	public void TC06() {
+		SoftAssert softAssertion = new SoftAssert();
+		
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 

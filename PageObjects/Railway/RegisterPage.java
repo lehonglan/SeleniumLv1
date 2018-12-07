@@ -3,12 +3,8 @@ package Railway;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
 
-public class RegisterPage extends GeneralPage{
-	// Locators
+public class RegisterPage extends GeneralPage {
 
-	// Elements
-
-	// Methods
 	public void register(String email, String password, String confirmpassword, String pidnumber) {
 		getBox(FormBox.EMAIL).clear();
 		getBox(FormBox.PASSWORD).clear();

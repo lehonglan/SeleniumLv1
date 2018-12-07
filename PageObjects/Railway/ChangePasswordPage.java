@@ -3,8 +3,8 @@ package Railway;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
 
-public class ChangePasswordPage extends GeneralPage{
-	
+public class ChangePasswordPage extends GeneralPage {
+
 	public void changePassword(String currentpass, String newpass, String confirmpass) {
 		getBox(FormBox.CURRENT_PASSWORD).clear();
 		getBox(FormBox.NEW_PASSWORD).clear();

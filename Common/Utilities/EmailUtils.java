@@ -20,6 +20,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.search.SubjectTerm;
 
+import Constant.Constant;
 
 
 /**
@@ -28,7 +29,9 @@ import javax.mail.search.SubjectTerm;
 public class EmailUtils {
 
   private Folder folder;
-
+  private static EmailUtils emailUtils;
+  private static Utilities utilities = new Utilities();
+  
   public enum EmailFolder {
     INBOX("INBOX"),
     SPAM("SPAM");
@@ -88,6 +91,21 @@ public class EmailUtils {
     folder = store.getFolder(emailFolder.getText());
     folder.open(Folder.READ_WRITE);
   }
+  
+	public static void openValidateLink(String mailsubject) {
+		try {
+			emailUtils = new EmailUtils("lan.le.test.01@gmail.com", "Lehonglan8180", "smtp.gmail.com",
+					EmailFolder.INBOX);
+			Message email = emailUtils.getLatestMessage();
+			String content = emailUtils.getMessageContent(email);
+			String link = utilities.extractUrls(content).get(0);
+
+			Constant.WEBDRIVER.get(link);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 

@@ -8,6 +8,7 @@ import Constant.Constant;
 import Constant.Constant.FormBox;
 import Constant.Constant.FormButton;
 import Constant.Constant.TabName;
+import Utilities.EmailUtils;
 
 public class LoginPage extends GeneralPage{
 
@@ -39,12 +40,8 @@ public class LoginPage extends GeneralPage{
 
 	public void resetPasswordToDefault(String username) {
 		sendMailResetPassword(username);
-		utilities.openValidateLink("Please reset your password");
-		getBox(FormBox.NEW_PASSWORD).clear();
-		getBox(FormBox.CONFIRM_PASSWORD).clear();
-		getBox(FormBox.NEW_PASSWORD).sendKeys(Constant.PASSWORD);
-		getBox(FormBox.CONFIRM_PASSWORD).sendKeys(Constant.PASSWORD);
-		clickFormActionButton(FormButton.RESET_PASSWORD);
+		EmailUtils.openValidateLink("Please reset your password");
+		resetPassword(Constant.PASSWORD,Constant.PASSWORD);
 	}
 	
 	public void resetPassword(String newpass, String confirmpass) {

@@ -8,15 +8,13 @@ public class InfoTicket {
 	private String seatType;
 	private String amount;
 
-	public InfoTicket(String departDate, String departFrom, String arriveAt, String seatType, String amount) 
-	{
+	public InfoTicket(String departDate, String departFrom, String arriveAt, String seatType, String amount) {
 		this.departDate = departDate;
 		this.departFrom = departFrom;
 		this.arriveAt = arriveAt;
 		this.seatType = seatType;
 		this.amount = amount;
 	}
-	
 
 	public String getDepartDate() {
 		return departDate;

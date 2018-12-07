@@ -14,15 +14,11 @@ public class Constant {
 	public static String EMPTY = "";
 
 	public static WebDriver WEBDRIVER;
-	public static String RAILWAY_URL = /*"http://localhost:8888";*/ "http://192.168.189.206:8888";
-	
+	public static String RAILWAY_URL = /* "http://localhost:8888"; */ "http://192.168.189.206:8888";
+
 	public enum FormButton {
-		BOOK_TICKET("Book ticket"),
-		REGISTER("Register"), 
-		LOGIN("login"), 
-		CHANGE_PASSWORD("Change Password"),
-		RESET_PASSWORD("Reset Password"),
-		SEND_INSTRUCTIONS("Send Instructions");
+		BOOK_TICKET("Book ticket"), REGISTER("Register"), LOGIN("login"), CHANGE_PASSWORD("Change Password"),
+		RESET_PASSWORD("Reset Password"), SEND_INSTRUCTIONS("Send Instructions");
 
 		private String value;
 
@@ -34,10 +30,9 @@ public class Constant {
 			this.value = value;
 		}
 	}
-	
+
 	public enum TimeOut {
-		DEFAULT(5),
-		LONG(20);
+		DEFAULT(5), LONG(20);
 
 		private int value;
 
@@ -49,13 +44,10 @@ public class Constant {
 			this.value = value;
 		}
 	}
-	
+
 	public enum ListType {
-		DEPART_DATE("Date"),
-		DEPART_FROM("DepartStation"),
-		ARRIVE_AT("ArriveStation"),
-		SEAT_TYPE("SeatType"),
-		TICKET_AMOUNT("TicketAmount");
+		DEPART_DATE("Date"), DEPART_FROM("DepartStation"), ARRIVE_AT("ArriveStation"), SEAT_TYPE("SeatType"),
+		TICKET_AMOUNT("TicketAmount"), FILTER_DEPART_STATION("FilterDpStation"), FILTER_STATUS("FilterStatus");
 
 		private String value;
 
@@ -67,16 +59,10 @@ public class Constant {
 			this.value = value;
 		}
 	}
-	
+
 	public enum FormBox {
-		USERNAME("username"),
-		EMAIL("email"),
-		PASSWORD("password"),
-		CURRENT_PASSWORD("currentPassword"),
-		NEW_PASSWORD("newPassword"),
-		CONFIRM_PASSWORD("confirmPassword"),
-		RESET_TOKEN("resetToken"),
-		PID("pid");
+		USERNAME("username"), EMAIL("email"), PASSWORD("password"), CURRENT_PASSWORD("currentPassword"),
+		NEW_PASSWORD("newPassword"), CONFIRM_PASSWORD("confirmPassword"), RESET_TOKEN("resetToken"), PID("pid");
 
 		private String value;
 
@@ -92,12 +78,17 @@ public class Constant {
 	public static class ChangePassword {
 		public static String SUCCESS_MESSAGE = "Your password has been updated";
 	}
-	
+
 	public static class ResetPassword {
 		public static String DIFFERENT_PASSWORD_ERROR_FORM_MESSAGE = "Could not reset password. Please correct the errors and try again.";
 		public static String DIFFERENT_PASSWORD_ERROR_BOX_MESSAGE = "The password confirmation did not match the new password.";
 		public static String INVALID_TOKEN_ERROR_FORM_MESSAGE = "The password reset token is incorrect or may be expired. Visit the forgot password page to generate a new one.";
 		public static String INVALID_TOKEN_ERROR_BOX_MESSAGE = "The password reset token is invalid.";
+	}
+
+	public static class MyTicket {
+		public static String FILTER_ERROR_MESSAGE = "Sorry, can't find any results that match your filters. \r\n"
+				+ "Please change the filters and try again.";
 	}
 
 	public static class Login {
@@ -111,11 +102,8 @@ public class Constant {
 		}
 	}
 
-	public enum PageHeader{
-		LOGIN("Login page"), 
-		CHANGEPASSWORD("Change password"), 
-		MYTICKET("Manage ticket"),
-		BOOKTICKET("Book ticket");
+	public enum PageHeader {
+		LOGIN("Login page"), CHANGEPASSWORD("Change password"), MYTICKET("Manage ticket"), BOOKTICKET("Book ticket");
 
 		private String value;
 
@@ -134,17 +122,13 @@ public class Constant {
 		public static String ERROR_PASSWORD_MESSAGE = "Invalid password length.";
 		public static String ERROR_PID_MESSAGE = "Invalid ID length.";
 	}
-	
+
 	public static class BookTicket {
 		public static String SUCCESS_MESSAGE = "Ticket booked successfully!";
 	}
-	
+
 	public enum MyTicketColumn {
-		DEPART_STATION("1"), 
-		ARRIVE_STATION("2"), 
-		SEAT_TYPE("3"), 
-		DEPART_DATE("4"),
-		AMOUNT("7"); 
+		DEPART_STATION("1"), ARRIVE_STATION("2"), SEAT_TYPE("3"), DEPART_DATE("4"), AMOUNT("7");
 
 		private String value;
 
@@ -156,10 +140,9 @@ public class Constant {
 			this.value = value;
 		}
 	}
-	
+
 	public enum TimeTableLink {
-		CHECK_PRICE("check price"),
-		BOOK_TICKET("book ticket");
+		CHECK_PRICE("check price"), BOOK_TICKET("book ticket");
 
 		private String value;
 
@@ -173,13 +156,8 @@ public class Constant {
 	}
 
 	public enum TabName {
-		LOGIN("Login"), 
-		LOGOUT("Log out"), 
-		BOOKTICKET("Book ticket"), 
-		MYTICKET("My ticket"),
-		CHANGEPASSWORD("Change password"), 
-		REGISTER("Register"),
-		TIMETABLE("Timetable");
+		LOGIN("Login"), LOGOUT("Log out"), BOOKTICKET("Book ticket"), MYTICKET("My ticket"),
+		CHANGEPASSWORD("Change password"), REGISTER("Register"), TIMETABLE("Timetable");
 
 		private String value;
 

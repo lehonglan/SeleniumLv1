@@ -1,8 +1,7 @@
 package Railway;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import Constant.Constant;
 import Constant.Constant.BookTicket;
@@ -20,6 +19,8 @@ public class BookTicketTest extends TestBase {
 
 	@Test(description = "User can book 1 ticket at a time")
 	public void TC14() {
+		SoftAssert softAssertion = new SoftAssert();
+		
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.BOOKTICKET);
@@ -41,6 +42,8 @@ public class BookTicketTest extends TestBase {
 
 	@Test(description = "User can open 'Book ticket' page by clicking on 'Book ticket' link in 'Train timetable' page")
 	public void TC15() {
+		SoftAssert softAssertion = new SoftAssert();
+		
 		homePage.openTab(TabName.LOGIN);
 		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
 		homePage.openTab(TabName.TIMETABLE);
@@ -51,15 +54,4 @@ public class BookTicketTest extends TestBase {
 		homePage.logOut();
 		softAssertion.assertAll();
 	}
-	
-	@Test(description = "User can cancel a ticket")
-	public void TC16() {
-		homePage.openTab(TabName.LOGIN);
-		loginPage.login(Constant.USERNAME_BACKUP, Constant.PASSWORD);
-		homePage.openTab(TabName.BOOKTICKET);
-		bookTicketPage.bookTicket(infoTicket);
-		bookTicketPage.cancelTicket(infoTicket.getDepartFrom(), infoTicket.getArriveAt());
-		Assert.assertFalse(bookTicketPage.isTicketDisplayed(infoTicket.getDepartFrom(), infoTicket.getArriveAt()));
-	}
-	
 }

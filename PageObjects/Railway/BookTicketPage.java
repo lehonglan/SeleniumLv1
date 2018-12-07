@@ -14,8 +14,19 @@ import Constant.Constant.ListType;
 import Constant.Constant.MyTicketColumn;
 import Constant.Constant.TabName;
 import Constant.InfoTicket;
+import Utilities.RandomdropDownValue;
 
 public class BookTicketPage extends GeneralPage {
+
+	public void bookTickets(int tickets) {
+		for (int i = 1; i <= tickets; i++) {
+			RandomdropDownValue random = new RandomdropDownValue();
+			InfoTicket infoTicket = new InfoTicket(bookRandomDate(), random.randomdValues(ListType.DEPART_FROM),
+					random.randomdValues(ListType.ARRIVE_AT), "Soft bed with air conditioner", "1");
+			bookTicket(infoTicket);
+			bookTicketPage.openTab(TabName.BOOKTICKET);
+		}
+	}
 
 	public void selectFromList(ListType listing, String item) {
 		Select list = new Select(
@@ -45,7 +56,7 @@ public class BookTicketPage extends GeneralPage {
 
 	public boolean isTicketDisplayed(String from, String to) {
 		try {
-			WebElement x =Constant.WEBDRIVER.findElement(By.xpath(String.format(
+			WebElement x = Constant.WEBDRIVER.findElement(By.xpath(String.format(
 					"//tr/td[text()='%s']//following-sibling::td[text()='%s']//following-sibling::td//input[@value='Cancel']",
 					from, to)));
 			return x.isDisplayed();
@@ -61,7 +72,17 @@ public class BookTicketPage extends GeneralPage {
 
 	public void bookTicket(InfoTicket infoTicket) {
 		selectFromList(ListType.DEPART_DATE, infoTicket.getDepartDate());
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		selectFromList(ListType.DEPART_FROM, infoTicket.getDepartFrom());
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		selectFromList(ListType.ARRIVE_AT, infoTicket.getArriveAt());
 		selectFromList(ListType.SEAT_TYPE, infoTicket.getSeatType());
 		selectFromList(ListType.TICKET_AMOUNT, infoTicket.getAmount());
