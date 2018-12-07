@@ -48,7 +48,7 @@ public class Utilities {
 
 	public String generateMail() {
 		String t = String.valueOf(System.currentTimeMillis());
-		return (Constant.USERNAME_WITHOUT_DOMAIN + "+" + t.substring(5, t.length())) + "@gmail.com";
+		return (Constant.USERNAME_WITHOUT_DOMAIN + "+" + t.substring(7, t.length())) + "@gmail.com";
 	}
 
 	public static void closeBrowser() {
