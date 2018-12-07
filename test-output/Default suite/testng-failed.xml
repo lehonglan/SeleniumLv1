@@ -7,6 +7,7 @@
         <methods>
           <include name="beforeClass"/>
           <include name="FTTC02"/>
+          <include name="FTTC01"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- Railway.MyTicketTest -->
