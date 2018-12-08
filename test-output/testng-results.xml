@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-12-07T15:59:07Z" name="Default suite" finished-at="2018-12-07T15:59:26Z" duration-ms="19126">
+  <suite started-at="2018-12-08T01:06:34Z" name="Default suite" finished-at="2018-12-08T01:06:46Z" duration-ms="11275">
     <groups>
     </groups>
-    <test started-at="2018-12-07T15:59:07Z" name="Default test" finished-at="2018-12-07T15:59:26Z" duration-ms="19126">
+    <test started-at="2018-12-08T01:06:34Z" name="Default test" finished-at="2018-12-08T01:06:46Z" duration-ms="11275">
       <class name="Railway.MyTicketTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.MyTicketTest@76f2bbc1]" started-at="2018-12-07T15:59:07Z" name="beforeClass" finished-at="2018-12-07T15:59:10Z" duration-ms="3508" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Railway.MyTicketTest@524d6d96]" started-at="2018-12-08T01:06:34Z" name="beforeClass" finished-at="2018-12-08T01:06:39Z" duration-ms="5071" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="FTTC01()[pri:0, instance:Railway.MyTicketTest@76f2bbc1]" started-at="2018-12-07T15:59:10Z" name="FTTC01" description="User can filter &#039;Manager ticket&#039; table with Depart Station" finished-at="2018-12-07T15:59:18Z" duration-ms="7450" status="PASS">
+        <test-method signature="FTTC01()[pri:0, instance:Railway.MyTicketTest@524d6d96]" started-at="2018-12-08T01:06:39Z" name="FTTC01" description="User can filter &#039;Manager ticket&#039; table with Depart Station" finished-at="2018-12-08T01:06:45Z" duration-ms="5588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FTTC01 -->
-        <test-method signature="FTTC02()[pri:0, instance:Railway.MyTicketTest@76f2bbc1]" started-at="2018-12-07T15:59:18Z" name="FTTC02" description="User can filter &#039;Manager ticket&#039; table with Depart Station" finished-at="2018-12-07T15:59:25Z" duration-ms="7591" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- FTTC02 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.MyTicketTest@76f2bbc1]" started-at="2018-12-07T15:59:25Z" name="afterClass" finished-at="2018-12-07T15:59:26Z" duration-ms="565" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Railway.MyTicketTest@524d6d96]" started-at="2018-12-08T01:06:45Z" name="afterClass" finished-at="2018-12-08T01:06:46Z" duration-ms="606" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

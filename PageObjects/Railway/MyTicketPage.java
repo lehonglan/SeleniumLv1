@@ -37,12 +37,15 @@ public class MyTicketPage {
 				.getText();
 	}
 	
-	public boolean isFilteredTicketsDisplay(ListType listing) {
-		List<WebElement> expectedTickets = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()='%s']",getTextOfCurrentSelectedItem(listing))));
-		List<WebElement> unExpectedTicket = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()!='%s']",getTextOfCurrentSelectedItem(listing))));
-		int expected = expectedTickets.size();
-		int unexpected = unExpectedTicket.size();
-		if (expected >= 1 && unexpected == 0) {
+	public int getAmoutFollowDepartStationOfFirstTicket () {
+		List<WebElement> displays = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()='%s']",getDepartStationFirstTicket())));
+		return displays.size();
+	}
+	
+	public boolean isWrongTicketDisplay(ListType listing) {
+		List<WebElement> wrongTickets = Constant.WEBDRIVER.findElements(By.xpath(String.format("//table[@class='MyTable']//td[(count(//tr/th[.='Depart Station']/preceding-sibling::th)+1)][normalize-space()!='%s']",getTextOfCurrentSelectedItem(listing))));
+		int amount = wrongTickets.size();
+		if (amount > 0) {
 			return true;
 		} else {
 			return false;

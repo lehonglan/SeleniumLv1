@@ -21,9 +21,12 @@ public class MyTicketTest extends TestBase{
 		homePage.openTab(TabName.BOOKTICKET);
 		bookTicketPage.bookTickets(7);
 		bookTicketPage.openTab(TabName.MYTICKET);
+		int expected = myTicketPage.getAmoutFollowDepartStationOfFirstTicket();
 		myTicketPage.applyFilter(ListType.FILTER_DEPART_STATION,myTicketPage.getDepartStationFirstTicket());
+		int actual = myTicketPage.getAmoutFollowDepartStationOfFirstTicket();
 		
-		softAssertion.assertTrue(myTicketPage.isFilteredTicketsDisplay(ListType.FILTER_DEPART_STATION));
+		softAssertion.assertEquals(actual, expected);
+		softAssertion.assertFalse(myTicketPage.isWrongTicketDisplay(ListType.FILTER_DEPART_STATION));
 		
 		bookTicketPage.cleanMyTickets(7);
 		homePage.logOut();
